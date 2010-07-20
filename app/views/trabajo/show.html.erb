@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title></title>
+	<%= stylesheet_link_tag 'invoice', :media => 'screen' %>
+</head>
+<body>
+	<h1>JOBS</h1>
+	<p>  
+
+
+		<table>
+			<thead>
+				<th>JobID</th>
+				<th>User</th>
+				<th>Group</th>
+				<th>JobName</th>
+				<th>Queue</th>
+				<th>Ctime</th>
+				<th>Etime</th>
+				<th>Start</th>
+				<th>Owner</th>			
+			</thead>
+			<tbody>
+			<% if @trabajos.size == 0 %> 
+				<p>Currently, there are no transactions.</p> 
+			<% else %>	
+				<% for trabajo in @trabajos %>
+				<tr>
+						<th><%= trabajo.jobid %></th>
+						<th><%= trabajo.user %></th>
+						<th><%= trabajo.group %></th>
+						<th><%= trabajo.jobname %></th>
+						<th><%= trabajo.queue %></th>
+						<th><%= trabajo.ctime %></th>
+						<th><%= trabajo.etime %></th>
+						<th><%= trabajo.start %></th>
+						<th><%= trabajo.owner %></th>
+					
+				</tr>
+				<% end %> 
+			<tbody>
+		</table>
+	<% end %> 
+			</body>
+			</html>
