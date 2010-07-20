@@ -1,6 +1,6 @@
 
 class JobController < ApplicationController
   def show
-    @job = Job.find(params[:id])
+    @jobs = Job.find_all()
   end
 end
