@@ -1,6 +1,6 @@
 
 class JobController < ApplicationController
   def show
-    @jobs = Job.find_all()
+    @jobs = Job.build_from_xml()
   end
 end

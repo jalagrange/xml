@@ -5000,3 +5000,370 @@ ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with
   
 
 Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:27:44) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 28ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:27:44) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:21) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 29ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:21) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:22) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:22) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:24) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 26ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:24) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:43) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 221ms (View: 20, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:45) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 28ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:45) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:46) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:47) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 29ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:47) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:47) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:48) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:48) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:48) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:48) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:49) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:28:50) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:28:50) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:29:00) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+  [4;36;1mJob Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `jobs`[0m
+
+ActionView::TemplateError (undefined method `has_key?' for nil:NilClass) on line #32 of app/views/job/show.html.erb:
+29: 			<% else %>	
+30: 				<% for job in @jobs %>
+31: 				<tr>
+32: 						<th><%= job.jobid %></th>
+33: 						<th><%= job.user %></th>
+34: 						<th><%= job.group %></th>
+35: 						<th><%= job.jobname %></th>
+
+    app/views/job/show.html.erb:32
+    app/views/job/show.html.erb:30:in `each'
+    app/views/job/show.html.erb:30
+
+Rendered rescues/_trace (192.9ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:29:07) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 30ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:29:07) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:32:55) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 30ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:32:55) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:32:57) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:32:57) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:34:48) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 29ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:34:49) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:34:50) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:34:50) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:41:01) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 27ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:41:01) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

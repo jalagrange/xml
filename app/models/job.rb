@@ -10,7 +10,7 @@
 
 require 'xml/libxml'
 
-class Job
+class Job < ActiveRecord::Base
 
   JOB_DIR = File.join('data', 'jobs')
 
@@ -22,7 +22,7 @@ class Job
     @ctime, @qtime, @etime, @start, @owner = ctime, qtime, etime, start, owner
   end
 
-  def self.find_all()
+  def self.build_from_xml()
     jobs = []
     input_file = "#{JOB_DIR}/1.xml"
     doc = XML::Document.file(input_file) 
