@@ -5367,3 +5367,454 @@ ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with
   
 
 Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:42:19) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 30ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:42:19) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:43:45) [GET]
+  Parameters: {"id"=>"1"}
+
+ActionView::MissingTemplate (Missing template job/datasave.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:44:29) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/datasave
+Completed in 39ms (View: 14, DB: 0) | 200 OK [http://localhost/job/datasave/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:44:29) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:44:39) [GET]
+Rendering job/datasave
+Completed in 29ms (View: 2, DB: 0) | 200 OK [http://localhost/job/datasave/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:44:39) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:45:18) [GET]
+Rendering job/datasave
+Completed in 36ms (View: 11, DB: 0) | 200 OK [http://localhost/job/datasave/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:45:18) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:45:42) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.delete):
+  app/controllers/job_controller.rb:10:in `datasave'
+  app/controllers/job_controller.rb:9:in `each'
+  app/controllers/job_controller.rb:9:in `datasave'
+
+Rendered rescues/_trace (79.7ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:46:03) [GET]
+  Parameters: {"id"=>"1"}
+Rendering job/show
+Completed in 28ms (View: 2, DB: 0) | 200 OK [http://localhost/job/show/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:46:03) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:46:20) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.delete):
+  app/controllers/job_controller.rb:10:in `datasave'
+  app/controllers/job_controller.rb:9:in `each'
+  app/controllers/job_controller.rb:9:in `datasave'
+
+Rendered rescues/_trace (80.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:48:17) [GET]
+
+SyntaxError (/Users/juanlagrange/Sites/xml/app/models/job.rb:32: syntax error, unexpected ',', expecting tASSOC
+/Users/juanlagrange/Sites/xml/app/models/job.rb:40: syntax error, unexpected '\n', expecting tCOLON2 or '[' or '.'
+/Users/juanlagrange/Sites/xml/app/models/job.rb:49: syntax error, unexpected $end, expecting kEND):
+  app/controllers/job_controller.rb:8:in `datasave'
+
+Rendered rescues/_trace (176.0ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:49:24) [GET]
+
+ArgumentError (wrong number of arguments (1 for 10)):
+  app/models/job.rb:30:in `initialize'
+  app/models/job.rb:30:in `new'
+  app/models/job.rb:30:in `build_from_xml'
+  app/models/job.rb:29:in `each'
+  app/models/job.rb:29:in `build_from_xml'
+  app/controllers/job_controller.rb:8:in `datasave'
+
+Rendered rescues/_trace (80.3ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:51:11) [GET]
+
+ArgumentError (wrong number of arguments (1 for 10)):
+  app/models/job.rb:30:in `initialize'
+  app/models/job.rb:30:in `new'
+  app/models/job.rb:30:in `build_from_xml'
+  app/models/job.rb:29:in `each'
+  app/models/job.rb:29:in `build_from_xml'
+  app/controllers/job_controller.rb:8:in `datasave'
+
+Rendered rescues/_trace (81.1ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:51:16) [GET]
+
+ArgumentError (wrong number of arguments (1 for 10)):
+  app/models/job.rb:30:in `initialize'
+  app/models/job.rb:30:in `new'
+  app/models/job.rb:30:in `build_from_xml'
+  app/models/job.rb:29:in `each'
+  app/models/job.rb:29:in `build_from_xml'
+  app/controllers/job_controller.rb:8:in `datasave'
+
+Rendered rescues/_trace (82.0ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:51:46) [GET]
+
+ArgumentError (wrong number of arguments (1 for 10)):
+  app/models/job.rb:30:in `initialize'
+  app/models/job.rb:30:in `new'
+  app/models/job.rb:30:in `build_from_xml'
+  app/models/job.rb:29:in `each'
+  app/models/job.rb:29:in `build_from_xml'
+  app/controllers/job_controller.rb:4:in `show'
+
+Rendered rescues/_trace (79.4ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:51:59) [GET]
+  [4;35;1mJob Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: qtime):
+  app/models/job.rb:27:in `new'
+  app/models/job.rb:27:in `build_from_xml'
+  app/models/job.rb:26:in `each'
+  app/models/job.rb:26:in `build_from_xml'
+  app/controllers/job_controller.rb:4:in `show'
+
+Rendered rescues/_trace (85.1ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:52:33) [GET]
+  [4;36;1mJob Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `jobs`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: qtime):
+  app/models/job.rb:27:in `new'
+  app/models/job.rb:27:in `build_from_xml'
+  app/models/job.rb:26:in `each'
+  app/models/job.rb:26:in `build_from_xml'
+  app/controllers/job_controller.rb:4:in `show'
+
+Rendered rescues/_trace (88.2ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:52:39) [GET]
+  [4;35;1mJob Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: qtime):
+  app/models/job.rb:27:in `new'
+  app/models/job.rb:27:in `build_from_xml'
+  app/models/job.rb:26:in `each'
+  app/models/job.rb:26:in `build_from_xml'
+  app/controllers/job_controller.rb:8:in `datasave'
+
+Rendered rescues/_trace (86.8ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:53:19) [GET]
+  [4;36;1mJob Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `jobs`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: qtime):
+  app/models/job.rb:23:in `new'
+  app/models/job.rb:23:in `build_from_xml'
+  app/models/job.rb:22:in `each'
+  app/models/job.rb:22:in `build_from_xml'
+  app/controllers/job_controller.rb:8:in `datasave'
+
+Rendered rescues/_trace (172.0ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:53:25) [GET]
+  [4;35;1mJob Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+
+ActiveRecord::UnknownAttributeError (unknown attribute: qtime):
+  app/models/job.rb:23:in `new'
+  app/models/job.rb:23:in `build_from_xml'
+  app/models/job.rb:22:in `each'
+  app/models/job.rb:22:in `build_from_xml'
+  app/controllers/job_controller.rb:4:in `show'
+
+Rendered rescues/_trace (85.5ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:53:35) [GET]
+  [4;36;1mJob Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `jobs`[0m
+Rendering job/show
+Completed in 43ms (View: 2, DB: 2) | 200 OK [http://localhost/job/show/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:53:35) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:53:52) [GET]
+  [4;35;1mJob Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `owner`) VALUES('7868908.pbs02.pic.es', 'lhpilot', '2010-07-20 12:53:52', '2010-07-20 12:53:52', '1262558999', '1262558912', '1262558912', 'glong_sl5', 'lhpilot001', 'STDIN', 'lhpilot001@ce06.pic.es')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mJob Create (0.2ms)[0m   [0;1mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `owner`) VALUES('7868904.pbs02.pic.es', 'lhpilot', '2010-07-20 12:53:52', '2010-07-20 12:53:52', '1262558999', '1262558911', '1262558911', 'gmedium_sl5', 'lhpilot001', 'STDIN', 'lhpilot001@ce06.pic.es')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `owner`) VALUES('7868917.pbs02.pic.es', 'lhpilot', '2010-07-20 12:53:52', '2010-07-20 12:53:52', '1262558999', '1262558914', '1262558914', 'gmedium_sl5', 'lhpilot001', 'STDIN', 'lhpilot001@ce06.pic.es')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mJob Create (0.2ms)[0m   [0;1mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `owner`) VALUES('7872326.pbs02.pic.es', 'atpilot', '2010-07-20 12:53:52', '2010-07-20 12:53:52', '1262600263', '1262600255', '1262600256', 'glong_sl5', 'atpilot002', 'STDIN', 'atpilot002@ce07.pic.es')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `owner`) VALUES('7872307.pbs02.pic.es', 'lhpilot', '2010-07-20 12:53:52', '2010-07-20 12:53:52', '1262599778', '1262599658', '1262599658', 'glong_sl5', 'lhpilot001', 'STDIN', 'lhpilot001@ce07.pic.es')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+Rendering job/datasave
+Completed in 69ms (View: 2, DB: 5) | 200 OK [http://localhost/job/datasave/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:53:52) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:55:48) [GET]
+  [4;35;1mJob Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+Rendering job/show
+Completed in 46ms (View: 2, DB: 2) | 200 OK [http://localhost/job/show/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:55:48) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#show (for 127.0.0.1 at 2010-07-20 14:56:25) [GET]
+  [4;36;1mJob Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `jobs`[0m
+Rendering job/show
+Completed in 54ms (View: 13, DB: 2) | 200 OK [http://localhost/job/show/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:56:26) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:56:51) [GET]
+  [4;35;1mJob Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.3ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7868908.pbs02.pic.es', 'lhpilot', '2010-07-20 12:56:51', '2010-07-20 12:56:51', '1262558999', '1262558912', '1262558912', 'glong_sl5', 'lhpilot001', 'STDIN', '1262558912', 'lhpilot001@ce06.pic.es')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mJob Create (0.2ms)[0m   [0;1mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7868904.pbs02.pic.es', 'lhpilot', '2010-07-20 12:56:51', '2010-07-20 12:56:51', '1262558999', '1262558911', '1262558911', 'gmedium_sl5', 'lhpilot001', 'STDIN', '1262558911', 'lhpilot001@ce06.pic.es')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7868917.pbs02.pic.es', 'lhpilot', '2010-07-20 12:56:51', '2010-07-20 12:56:51', '1262558999', '1262558914', '1262558914', 'gmedium_sl5', 'lhpilot001', 'STDIN', '1262558914', 'lhpilot001@ce06.pic.es')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mJob Create (0.2ms)[0m   [0;1mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7872326.pbs02.pic.es', 'atpilot', '2010-07-20 12:56:51', '2010-07-20 12:56:51', '1262600263', '1262600255', '1262600256', 'glong_sl5', 'atpilot002', 'STDIN', '1262600256', 'atpilot002@ce07.pic.es')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7872307.pbs02.pic.es', 'lhpilot', '2010-07-20 12:56:51', '2010-07-20 12:56:51', '1262599778', '1262599658', '1262599658', 'glong_sl5', 'lhpilot001', 'STDIN', '1262599658', 'lhpilot001@ce07.pic.es')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+Rendering job/datasave
+Completed in 72ms (View: 2, DB: 5) | 200 OK [http://localhost/job/datasave/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:56:51) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing JobController#datasave (for 127.0.0.1 at 2010-07-20 14:57:04) [GET]
+  [4;35;1mJob Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `jobs`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7868908.pbs02.pic.es', 'lhpilot', '2010-07-20 12:57:04', '2010-07-20 12:57:04', '1262558999', '1262558912', '1262558912', 'glong_sl5', 'lhpilot001', 'STDIN', '1262558912', 'lhpilot001@ce06.pic.es')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mJob Create (0.2ms)[0m   [0;1mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7868904.pbs02.pic.es', 'lhpilot', '2010-07-20 12:57:04', '2010-07-20 12:57:04', '1262558999', '1262558911', '1262558911', 'gmedium_sl5', 'lhpilot001', 'STDIN', '1262558911', 'lhpilot001@ce06.pic.es')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7868917.pbs02.pic.es', 'lhpilot', '2010-07-20 12:57:04', '2010-07-20 12:57:04', '1262558999', '1262558914', '1262558914', 'gmedium_sl5', 'lhpilot001', 'STDIN', '1262558914', 'lhpilot001@ce06.pic.es')[0m
+  [4;36;1mSQL (19.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mJob Create (0.2ms)[0m   [0;1mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7872326.pbs02.pic.es', 'atpilot', '2010-07-20 12:57:04', '2010-07-20 12:57:04', '1262600263', '1262600255', '1262600256', 'glong_sl5', 'atpilot002', 'STDIN', '1262600256', 'atpilot002@ce07.pic.es')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mJob Create (0.2ms)[0m   [0mINSERT INTO `jobs` (`jobid`, `group`, `created_at`, `updated_at`, `start`, `ctime`, `etime`, `queue`, `user`, `jobname`, `qtime`, `owner`) VALUES('7872307.pbs02.pic.es', 'lhpilot', '2010-07-20 12:57:04', '2010-07-20 12:57:04', '1262599778', '1262599658', '1262599658', 'glong_sl5', 'lhpilot001', 'STDIN', '1262599658', 'lhpilot001@ce07.pic.es')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCOMMIT[0m
+Rendering job/datasave
+Completed in 94ms (View: 2, DB: 24) | 200 OK [http://localhost/job/datasave/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-20 14:57:04) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/invoice.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

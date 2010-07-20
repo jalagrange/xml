@@ -14,13 +14,6 @@ class Job < ActiveRecord::Base
 
   JOB_DIR = File.join('data', 'jobs')
 
-  attr_reader :jobid, :user, :group, :jobname, :queue, :ctime
-  attr_reader :qtime, :etime, :start, :owner
-
-  def initialize(jobid, user, group, jobname, queue, ctime, qtime, etime, start, owner)
-    @jobid, @user, @group, @jobname, @queue = jobid, user, group, jobname, queue
-    @ctime, @qtime, @etime, @start, @owner = ctime, qtime, etime, start, owner
-  end
 
   def self.build_from_xml()
     jobs = []
@@ -28,16 +21,16 @@ class Job < ActiveRecord::Base
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
       jobs << Job.new(
-        node.find('jobid').to_a.first.content,
-        node.find('user').to_a.first.content,
-        node.find('group').to_a.first.content,
-        node.find('jobname').to_a.first.content,
-        node.find('queue').to_a.first.content,
-        node.find('ctime').to_a.first.content,
-        node.find('qtime').to_a.first.content,
-        node.find('etime').to_a.first.content,
-        node.find('start').to_a.first.content,
-        node.find('owner').to_a.first.content
+        :jobid => node.find('jobid').to_a.first.content,
+        :user => node.find('user').to_a.first.content,
+        :group => node.find('group').to_a.first.content,
+        :jobname => node.find('jobname').to_a.first.content,
+        :queue => node.find('queue').to_a.first.content,
+        :ctime => node.find('ctime').to_a.first.content,
+        :qtime => node.find('qtime').to_a.first.content,
+        :etime => node.find('etime').to_a.first.content,
+        :start => node.find('start').to_a.first.content,
+        :owner => node.find('owner').to_a.first.content
        
       )
     end
