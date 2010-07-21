@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>PICNIC</title>
+	<%= stylesheet_link_tag 'style' %>
+	<%= stylesheet_link_tag 'css/ui-lightness/jquery-ui-1.8.2.custom' %>
+	<%= javascript_include_tag "js/jquery-1.4.2.min", "js/jquery-ui-1.8.2.custom.min","js/highcharts" %>
+	<%= yield :head %> 
+</head>
+	<body class="home blog">
+		<div id="wrapper" class="hfeed">
+			<%= render :partial => "layouts/heading" %>
+
+			<div id="main">
+				<div id="container" class="single-attachment">
+					<div id="content">
+
+						<%= yield %>
+
+					</div>	
+				</div><!-- #container -->
+			
+			</div><!-- #main -->
+
+			<div id="footer">
+				<div id="colophon">
+					<div id="site-info">
+						<%=link_to "PICNIC"%>
+					</div><!-- #site-info -->
+					<div id ="site-generator">
+						<p>Sistema de Monitoreo PICNIC</p>
+					</div><!-- #site-generator -->
+				</div><!-- #colophon -->
+			</div><!-- #footer -->
+		</div><!-- #hfeed -->
+	</body>
+</html>
