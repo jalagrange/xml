@@ -23,11 +23,13 @@ class Job < ActiveRecord::Base
 
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/3.xml"
+    input_file = "#{JOB_DIR}/1.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
       jobs << Job.new(
         :jobid => node.find('jobid').to_a.first.content,
+        :day => node.find('date/day').to_a.first.content,
+        :time => node.find('date/time').to_a.first.content,
         :user => node.find('user').to_a.first.content,
         :group => node.find('group').to_a.first.content,
         :jobname => node.find('jobname').to_a.first.content,
@@ -36,8 +38,17 @@ class Job < ActiveRecord::Base
         :qtime => node.find('qtime').to_a.first.content,
         :etime => node.find('etime').to_a.first.content,
         :start => node.find('start').to_a.first.content,
-        :owner => node.find('owner').to_a.first.content
-       
+        :owner => node.find('owner').to_a.first.content,
+        :session => node.find('session').to_a.first.content,
+        :end => node.find('end').to_a.first.content,
+  	    :exit_status => node.find('exit_status').to_a.first.content,
+  	    :node_name => node.find('resources_used/exec_host/node/nodename').to_a.first.content,
+  	    :cpu => node.find('resources_used/exec_host/node/cpu').to_a.first.content,
+  	    :cput => node.find('resources_used/cput').to_a.first.content,
+  	    :memory => node.find('resources_used/mem/memory').to_a.first.content,
+  	    :virtual_memory => node.find('resources_used/vmem/memory').to_a.first.content,
+  	    :walltime => node.find('resources_used/walltime').to_a.first.content
+  	
       )
     end
     jobs

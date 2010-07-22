@@ -28,7 +28,7 @@ $(document).ready(function() {
 					text: "Jobs Ejecutados"
 				},
 				xAxis:{
-					categories: ['jobs']
+					categories: ['jobs.group']
 
 				},
 				yAxis:{
@@ -59,10 +59,10 @@ $(document).ready(function() {
 				         backgroundColor: '#FFFFFF'
 				      },
 			 series: [
-			<% for grupo in @group_counts %>
+			<% for job in @group_counts %>
 							{
-							name:'<%= grupo.nombre %>',
-							data:[<%= grupo.contador %>]
+							name:'<%= job.group %>',
+							data:[<%= job.number_of_jobs %>]
 									},										
 									<% end %>
 						      ]
@@ -81,10 +81,10 @@ $(document).ready(function() {
 				</tr>		
 			</thead>
 			<tbody>
-					<% for grupo in @group_counts %>
+					<% for job in @group_counts %>
 					<tr>
-							<td><%= grupo.nombre %></td>
-							<td><%= grupo.contador %></td>										
+							<td><%= job.group %></td>
+							<td><%= job.number_of_jobs %></td>										
 					</tr>
 					<% end %>
 			</tbody>
