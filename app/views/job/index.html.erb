@@ -1,48 +1,122 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<% content_for :head do %>  
+<%= javascript_include_tag 'jquery.dataTables','highcharts' %>  
+<%= stylesheet_link_tag 'demo_table_jui' %>
+<script type="text/javascript">
+$(document).ready(function() {
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<title></title>
-	<%= stylesheet_link_tag 'invoice', :media => 'screen' %>
-</head>
-<body>
-	<h1>JOBS</h1>
-	<p>  
+	$('#jobs').dataTable({
+	 "bJQueryUI": true,
+		"aoColumns": [
+			null,
+            null,
+            null,
+            null,
+			null,
+            null,
+			null,
+			null,
+			null,
+			null
+        ]
+                   
+	});
+});
+</script>
+ <% end %>
+	<h1>JOBS</h1> 
+	
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			new Highcharts.Chart({
+				chart: {
+					renderTo: "jobs_chart",
+					defaultSeriesType: 'bar'
+				},
+				title: {
+					text: "Jobs Ejecutados"
+				},
+				xAxis:{
+					categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
 
+				},
+				yAxis:{
+					title:{
+						text: "Prueba"
+					}
+				},
+				tooltip: {
+				         formatter: function() {
+				            return ''+
+				                this.series.name +': '+ this.y +' millions';
+				         }
+				      },
+				      plotOptions: {
+				         bar: {
+				            dataLabels: {
+				               enabled: true
+				            }
+				         }
+				      },
+				legend: {
+				         layout: 'vertical',
+				         align: 'right',
+				         verticalAlign: 'top',
+				         x: -100,
+				         y: 100,
+				         borderWidth: 1,
+				         backgroundColor: '#FFFFFF'
+				      },
+			 series: [{
+			         name: 'Year 1800',
+			         data: [107, 31, 635, 203, 2]
+			      }, {
+			         name: 'Year 1900',
+			         data: [133, 156, 947, 408, 6]
+			      }, {
+			         name: 'Year 2008',
+			         data: [973, 914, 4054, 732, 34]
+			      }]
+				
+				});
+			});
+	</script>
+	
+	<div id="jobs_chart" style="width:560px; height:300px"></div>
+		
+			<% if @jobs.size == 0 %> 
+				<p>Currently, there are no transactions.</p> 
+			<% else %>
 
-		<table>
+			<table id="jobs" title="jobs" summary="Tiene los trabajos ejecutados en PBS">
 			<thead>
-				<th>JobID</th>
-				<th>User</th>
-				<th>Group</th>
-				<th>JobName</th>
-				<th>Queue</th>
-				<th>Ctime</th>
-				<th>Etime</th>
-				<th>Start</th>
-				<th>Owner</th>			
+				<tr>
+					<th>JobID</th>
+					<th>User</th>
+					<th>Group</th>
+					<th>JobName</th>
+					<th>Queue</th>
+					<th>Ctime</th>
+					<th>Qtime</th>
+					<th>eTime</th>
+					<th>Start</th>
+					<th>Owner</th>
+				</tr>		
 			</thead>
 			<tbody>
-			<% if @jobs.size == 0 %> 
-				<p>No hay jobs</p> 
-			<% else %>	
 				<% for job in @jobs %>
 				<tr>
-						<th><%= job.jobid %></th>
-						<th><%= job.user %></th>
-						<th><%= job.group %></th>
-						<th><%= job.jobname %></th>
-						<th><%= job.queue %></th>
-						<th><%= job.ctime %></th>
-						<th><%= job.etime %></th>
-						<th><%= job.start %></th>
-						<th><%= job.owner %></th>
-					
+						<td><%= job.jobid %></td>
+						<td><%= job.user %></td>
+						<td><%= job.group %></td>
+						<td><%= job.jobname %></td>
+						<td><%= job.queue %></td>
+						<td><%= job.ctime %></td>
+						<td><%= job.qtime %></td>
+						<td><%= job.etime %></td>
+						<td><%= job.start %></td>
+						<td><%= job.owner %></td>					
 				</tr>
 				<% end %> 
-			<tbody>
+			</tbody>
 		</table>
 	<% end %> 
-			</body>
-			</html>

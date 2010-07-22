@@ -1,5 +1,5 @@
 <% content_for :head do %>  
-<%= javascript_include_tag 'jquery.dataTables' %>  
+<%= javascript_include_tag 'jquery.dataTables','highcharts' %>  
 <%= stylesheet_link_tag 'demo_table_jui' %>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -8,15 +8,7 @@ $(document).ready(function() {
 	 "bJQueryUI": true,
 		"aoColumns": [
 			null,
-             { "bSortable": false },
-            null,
-            null,
-			null,
-            null,
-			null,
-			null,
-			null,
-			null
+            null
         ]
                    
 	});
@@ -24,47 +16,80 @@ $(document).ready(function() {
 </script>
  <% end %>
 	<h1>JOBS</h1> 
-	<div id="jobs_chart" style="width:560px; height:300px"></div>
-			<% if @jobs.size == 0 %> 
-				<p>Currently, there are no transactions.</p> 
-			<% else %>
-	<script type="text/javascript">
-			$(function() {
+	
+	<script type="text/javascript" charset="utf-8">
+		$(function() {
+			new Highcharts.Chart({
+				chart: {
+					renderTo: "jobs_chart",
+					defaultSeriesType: 'bar'
+				},
+				title: {
+					text: "Jobs Ejecutados"
+				},
+				xAxis:{
+					categories: ['jobs']
 
+				},
+				yAxis:{
+					title:{
+						text: "Prueba"
+					}
+				},
+				tooltip: {
+				         formatter: function() {
+				            return ''+
+				                this.series.name +': '+ this.y +' millions';
+				         }
+				      },
+				      plotOptions: {
+				         bar: {
+				            dataLabels: {
+				               enabled: true
+				            }
+				         }
+				      },
+				legend: {
+				         layout: 'vertical',
+				         align: 'right',
+				         verticalAlign: 'top',
+				         x: -90,
+				         y: 20,
+				         borderWidth: 1,
+				         backgroundColor: '#FFFFFF'
+				      },
+			 series: [
+			<% for grupo in @group_counts %>
+							{
+							name:'<%= grupo.nombre %>',
+							data:[<%= grupo.contador %>]
+									},										
+									<% end %>
+						      ]
 				});
 			});
 	</script>
+	
+	<div id="jobs_chart" style="width:560px; height:300px"></div>
+		
+
 			<table id="jobs" title="jobs" summary="Tiene los trabajos ejecutados en PBS">
 			<thead>
 				<tr>
-					<th>JobID</th>
-					<th>User</th>
 					<th>Group</th>
-					<th>JobName</th>
-					<th>Queue</th>
-					<th>Ctime</th>
-					<th>Qtime</th>
-					<th>eTime</th>
-					<th>Start</th>
-					<th>Owner</th>
+					<th>Cantidad</th>					
 				</tr>		
 			</thead>
 			<tbody>
-				<% for job in @jobs %>
-				<tr>
-						<td><%= job.jobid %></td>
-						<td><%= job.user %></td>
-						<td><%= job.group %></td>
-						<td><%= job.jobname %></td>
-						<td><%= job.queue %></td>
-						<td><%= job.ctime %></td>
-						<td><%= job.qtime %></td>
-						<td><%= job.etime %></td>
-						<td><%= job.start %></td>
-						<td><%= job.owner %></td>					
-				</tr>
-				<% end %> 
+					<% for grupo in @group_counts %>
+					<tr>
+							<td><%= grupo.nombre %></td>
+							<td><%= grupo.contador %></td>										
+					</tr>
+					<% end %>
 			</tbody>
 		</table>
-	<% end %> 
+
+		
+		
 		

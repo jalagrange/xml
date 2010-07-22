@@ -14,10 +14,16 @@ class Job < ActiveRecord::Base
 
   JOB_DIR = File.join('data', 'jobs')
 
+    def self.groups()
+      Job.find(
+         :all, 
+         :select => 'count(*) count, group', 
+         :group => 'group')
+    end
 
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/1.xml"
+    input_file = "#{JOB_DIR}/3.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
       jobs << Job.new(
@@ -36,6 +42,7 @@ class Job < ActiveRecord::Base
     end
     jobs
   end
+
 end
 
 
