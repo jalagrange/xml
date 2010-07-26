@@ -39,30 +39,12 @@ class Job < ActiveRecord::Base
   end
   
   def self.cput
-    @times = find(:all,
-                :select => 'cput')
-   @total_time =0
-    for time in @times do  
-      @total_time += time_to_seconds(time.cput)
-      end
-   @total_time  
-
+     sum(:cput)
   end
   
   def self.walltime
-     @times = find(:all,
-                  :select => 'walltime')
-     @total_time =0
-      for time in @times do  
-        @total_time += time_to_seconds(time.walltime)
-        end
-     @total_time
+     sum(:walltime)
   end
-
-  def self.time_to_seconds(time)
-  time.to_i - 946684800
-  end
-
 
   
   def self.build_from_xml()
@@ -92,9 +74,7 @@ class Job < ActiveRecord::Base
     	    :cput => node.find('resources_used/cput').to_a.first.content,
     	    :memory => node.find('resources_used/mem/memory').to_a.first.content,
     	    :virtual_memory => node.find('resources_used/vmem/memory').to_a.first.content,
-    	    :walltime => node.find('resources_used/walltime').to_a.first.content
-
-  	
+    	    :walltime => node.find('resources_used/walltime').to_a.first.content	
         )
       end
     end

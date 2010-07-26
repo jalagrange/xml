@@ -24,9 +24,16 @@ class JobController < ApplicationController
      @process = job.jobname.split('_')
       job.proyect = @process[0]
       job.process = @process[1]
+      job.walltime = total_seconds(job.walltime)
+      job.cput = total_seconds(job.cput)
       job.save
     end
-    
+  end
+  
+  def total_seconds (time)
+    h,m,s= time.split(':')
+    total_time = h.to_i * 3600 + m.to_i * 60 + s.to_i
+    total_time
   end
   
 end
