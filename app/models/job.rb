@@ -12,6 +12,8 @@ require 'xml/libxml'
 
 class Job < ActiveRecord::Base
 
+belongs_to :proceso, :include => :software 
+
   JOB_DIR = File.join('data', 'jobs')
 
     def self.groups

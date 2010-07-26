@@ -8,15 +8,7 @@ $(document).ready(function() {
 	 "bJQueryUI": true,
 		"aoColumns": [
 			null,
-            null,
-            null,
-            null,
-			null,
-            null,
-			null,
-			null,
-			null,
-			null
+            null
         ]
                    
 	});
@@ -36,7 +28,7 @@ $(document).ready(function() {
 					text: "Jobs Ejecutados"
 				},
 				xAxis:{
-					categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania']
+					categories: ['Grupos']
 
 				},
 				yAxis:{
@@ -47,7 +39,7 @@ $(document).ready(function() {
 				tooltip: {
 				         formatter: function() {
 				            return ''+
-				                this.series.name +': '+ this.y +' millions';
+				                this.series.name +': '+ this.y	;
 				         }
 				      },
 				      plotOptions: {
@@ -61,62 +53,48 @@ $(document).ready(function() {
 				         layout: 'vertical',
 				         align: 'right',
 				         verticalAlign: 'top',
-				         x: -100,
-				         y: 100,
+				         x: -90,
+				         y: 20,
 				         borderWidth: 1,
 				         backgroundColor: '#FFFFFF'
 				      },
-			 series: [{
-			         name: 'Year 1800',
-			         data: [107, 31, 635, 203, 2]
-			      }, {
-			         name: 'Year 1900',
-			         data: [133, 156, 947, 408, 6]
-			      }, {
-			         name: 'Year 2008',
-			         data: [973, 914, 4054, 732, 34]
-			      }]
-				
+			 series: [
+			<% for job in @group_counts %>
+							{
+							name:'<%= job.group %>',
+							data:[<%= job.number_of_jobs %>]
+									},										
+									<% end %>
+						      ]
 				});
 			});
 	</script>
 	
 	<div id="jobs_chart" style="width:560px; height:300px"></div>
 		
-			<% if @jobs.size == 0 %> 
-				<p>Currently, there are no transactions.</p> 
-			<% else %>
+<h3>El Tiempo en cola ha sido de: <%= @time_in_queue %> segundos</h3>
+<h3>El Tiempo en ejecucion ha sido de: <%= @time_in_execution %> segundos</h3>
+<h3>La memoria utilizada ha sido de: <%= number_to_human_size(@memory) %></h3>
+<h3>La memoria virtual utilizada ha sido de: <%= number_to_human_size(@virtual_memory) %></h3>
+<h3>El tiempo de CPU ha sido de: <%= @cput %></h3>
+<h3>El Walltime ha sido de : <%= @walltime %></h3>
 
 			<table id="jobs" title="jobs" summary="Tiene los trabajos ejecutados en PBS">
 			<thead>
 				<tr>
-					<th>JobID</th>
-					<th>User</th>
 					<th>Group</th>
-					<th>JobName</th>
-					<th>Queue</th>
-					<th>Ctime</th>
-					<th>Qtime</th>
-					<th>eTime</th>
-					<th>Start</th>
-					<th>Owner</th>
+					<th>Cantidad</th>					
 				</tr>		
 			</thead>
 			<tbody>
-				<% for job in @jobs %>
-				<tr>
-						<td><%= job.jobid %></td>
-						<td><%= job.user %></td>
-						<td><%= job.group %></td>
-						<td><%= job.jobname %></td>
-						<td><%= job.queue %></td>
-						<td><%= job.ctime %></td>
-						<td><%= job.qtime %></td>
-						<td><%= job.etime %></td>
-						<td><%= job.start %></td>
-						<td><%= job.owner %></td>					
-				</tr>
-				<% end %> 
+					<% for job in @group_counts %>
+					<tr>
+							<td><%= job.group %></td>
+							<td><%= job.number_of_jobs %></td>										
+					</tr>
+					<% end %>
 			</tbody>
 		</table>
-	<% end %> 
+
+		
+		

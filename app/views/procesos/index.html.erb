@@ -1,0 +1,28 @@
+<h1>Lista de procesos</h1>
+<%= link_to 'New proceso', new_proceso_path %>
+
+<table>
+	<th>
+  		<tr>
+	   	 	<th>Name</th>
+		    <th>Software</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</th>
+	<tbody>
+<% @procesos.each do |proceso| %>
+  <tr>
+    <td><%=h proceso.name %></td>
+    <td><%=h proceso.software.name %></td>
+    <td><%= link_to 'Show', proceso %></td>
+    <td><%= link_to 'Edit', edit_proceso_path(proceso) %></td>
+    <td><%= link_to 'Destroy', proceso, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+

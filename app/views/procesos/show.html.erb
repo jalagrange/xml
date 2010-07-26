@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @proceso.name %>
+</p>
+
+<p>
+  <b>Software:</b>
+  <%=h @proceso.software.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_proceso_path(@proceso) %> |
+<%= link_to 'Back', procesos_path %>

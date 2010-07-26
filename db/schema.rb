@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100726110340) do
+ActiveRecord::Schema.define(:version => 20100726140033) do
 
   create_table "jobs", :force => true do |t|
     t.datetime "created_at"
@@ -31,12 +31,32 @@ ActiveRecord::Schema.define(:version => 20100726110340) do
     t.string   "exit_status",    :limit => 50
     t.string   "node_name",      :limit => 50
     t.string   "cpu",            :limit => 50
-    t.time     "cput"
+    t.string   "cput",           :limit => 15
     t.integer  "memory"
     t.integer  "virtual_memory"
-    t.time     "walltime"
-    t.string   "proyect",        :limit => 20
-    t.string   "process",        :limit => 10
+    t.string   "walltime",       :limit => 15
+    t.string   "proyect",        :limit => 10
+    t.integer  "process"
+  end
+
+  create_table "procesos", :force => true do |t|
+    t.string   "name"
+    t.integer  "software_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "processes", :force => true do |t|
+    t.string   "name"
+    t.integer  "software_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "softwares", :force => true do |t|
+    t.string   "name",       :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
