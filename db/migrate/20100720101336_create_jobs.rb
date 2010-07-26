@@ -1,12 +1,16 @@
 class CreateJobs < ActiveRecord::Migration
   def self.up
     create_table :jobs do |t|
+       
+      add_column :jobs, :proyect, :string, :limit => 20 
+      add_column :jobs, :process, :string, :limit => 20
 
-      t.timestamps
+
     end
   end
 
   def self.down
-    drop_table :jobs
+    remove_column :jobs, :proyect
+    remove_column :jobs, :process
   end
 end
