@@ -39,7 +39,7 @@ $(document).ready(function() {
 				tooltip: {
 				         formatter: function() {
 				            return ''+
-				                this.series.name +': '+ this.y +' millions';
+				                this.series.name +': '+ this.y	;
 				         }
 				      },
 				      plotOptions: {
@@ -72,6 +72,12 @@ $(document).ready(function() {
 	
 	<div id="jobs_chart" style="width:560px; height:300px"></div>
 		
+<h3>El Tiempo en cola ha sido de: <%= @time_in_queue %> segundos</h3>
+<h3>El Tiempo en ejecucion ha sido de: <%= @time_in_execution %> segundos</h3>
+<h3>La memoria utilizada ha sido de: <%= number_to_human_size(@memory) %></h3>
+<h3>La memoria virtual utilizada ha sido de: <%= number_to_human_size(@virtual_memory) %></h3>
+<h3>El tiempo de CPU ha sido de: <%= @cput %></h3>
+<h3>El Walltime ha sido de : <%= @walltime %></h3>
 
 			<table id="jobs" title="jobs" summary="Tiene los trabajos ejecutados en PBS">
 			<thead>

@@ -1,0 +1,35 @@
+Doumentacion de PBS:
+Fuente:
+http://pbsaccounting.sourceforge.net/xml/linux_joblog/linux_joblog.html
+
+queue: La cola de ejecucion
+
+ctime: Epoch  time in seconds when job first created (submitted)
+
+qtime: The number of seconds when the job was queued into current queue
+
+etime: A record indicating the job has started
+
+start: The time in seconds when the job started to execute
+
+session: The session id of the job
+
+end: Epoch time in seconds when job ended
+
+cput: CPU time for job in seconds
+ 
+walltime: The wall clock time for the job in format HH:MM:SS
+
+resource_list: A list of resources the job has requested
+
+resources_used: A list of resources the job used
+
+mem: Memory used by the job {
+
+	memory: The maximum memory used by the job 
+
+}
+
+vmem:The virtual memory the job used
+
+  /job.grupo=Grupo.find_or_create_by_nombre(elementoxmlgruponombre)/
