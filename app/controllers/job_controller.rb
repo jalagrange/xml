@@ -23,7 +23,7 @@ class JobController < ApplicationController
       /PRESENILE_fsproc_NMP_214.sh/
      @split = job.jobname.split('_')
       job.proyect = @split[0]
-      job.process = Proceso.find_by_name(@split[1])
+      job.proceso_id = Proceso.find_by_name(@split[1])
       job.walltime = total_seconds(job.walltime)
       job.cput = total_seconds(job.cput)
       job.save
