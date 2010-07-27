@@ -1,8 +1,28 @@
+<% content_for :head do %>  
+<%= javascript_include_tag 'jquery.dataTables','highcharts' %>  
+<%= stylesheet_link_tag 'demo_table_jui' %>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#procesos').dataTable({
+	 "bJQueryUI": true,
+		"aoColumns": [
+			null,
+            null,
+			null,
+			null,
+			null
+        ]
+                   
+	});
+});
+</script>
+ <% end %>
 <h1>Lista de procesos</h1>
 <%= link_to 'New proceso', new_proceso_path %>
 
-<table>
-	<th>
+<table id="procesos">
+	<thead>
   		<tr>
 	   	 	<th>Name</th>
 		    <th>Software</th>
@@ -10,7 +30,7 @@
 			<th></th>
 			<th></th>
 		</tr>
-	</th>
+	</thead>
 	<tbody>
 <% @procesos.each do |proceso| %>
   <tr>

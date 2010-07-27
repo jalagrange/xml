@@ -8,7 +8,8 @@ $(document).ready(function() {
 	 "bJQueryUI": true,
 		"aoColumns": [
 			null,
-            null
+            null,
+			null
         ]
                    
 	});
@@ -16,22 +17,21 @@ $(document).ready(function() {
 </script>
 <% end %>
 
-	
-	<div id="jobs_chart" style="width:560px; height:300px"></div>
-
 
 			<table id="jobs" title="jobs" summary="Tiene los trabajos ejecutados en PBS">
 			<thead>
 				<tr>
-					<th>Group</th>
-					<th>Cantidad</th>					
+					<th>Proyecto</th>
+					<th>Software</th>
+					<th>Proceso</th>					
 				</tr>		
 			</thead>
 			<tbody>
 					<% for job in @jobs %>
 					<tr>
-							<td><%= job.group %></td>
-							<td><%= job.proceso.software.name %></td>										
+							<td><%= job.proyect %></td>
+							<td><%= job.proceso.software.name %></td>
+							<td><%= job.proceso.name %></td>										
 					</tr>
 					<% end %>
 			</tbody>
