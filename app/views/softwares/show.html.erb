@@ -1,8 +1,66 @@
+<% content_for :head do %>  
+<%= javascript_include_tag 'jquery.dataTables','highcharts' %>  
+<%= stylesheet_link_tag 'demo_table_jui' %>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#jobs').dataTable({
+	 "bJQueryUI": true,
+		"aoColumns": [
+			null,
+            null
+        ]
+                   
+	});
+});
+</script>
+ <% end %>
+
+
 <p>
   <b>Name:</b>
   <%=h @software.name %>
 </p>
+<%= render :partial => "bar", :locals => { :div_bar => "bar_chart", :variable_name => "job.day" } %>
+<%= render :partial => "pie", :locals => { :div_pie => "pie_chart"} %>
+<%= render :partial => "line", :locals => { :div_line => "line_chart"} %>
 
+<div id="bar_chart" style="width:560px; height:300px"></div>
+<div id="pie_chart" style="width:560px; height:300px"></div>
+<div id="line_chart" style="width:560px; height:300px"></div>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>Proceso</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<% for proceso in @procesos %>
+		<tr>
+			<th><%= proceso.name %></th>				
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<% for job in @jobs_diarios %>
+		<tr>
+			<th><%= job.walltime %></th>				
+		</tr>
+		<% end %>
+	</tbody>
+</table>
 
 <%= link_to 'Edit', edit_software_path(@software) %> |
 <%= link_to 'Back', softwares_path %>

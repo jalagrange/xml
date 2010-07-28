@@ -8,6 +8,21 @@
   <%=h @proceso.software.name %>
 </p>
 
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<% for job in @jobs %>
+			<tr>
+				<th><%= job.jobid %></th>				
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 
 <%= link_to 'Edit', edit_proceso_path(@proceso) %> |
 <%= link_to 'Back', procesos_path %>

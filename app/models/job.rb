@@ -12,7 +12,8 @@ require 'xml/libxml'
 
 class Job < ActiveRecord::Base
 
-belongs_to :proceso, :include => :software 
+belongs_to :proceso
+belongs_to :software
 
   JOB_DIR = File.join('data', 'jobs')
 
@@ -21,6 +22,14 @@ belongs_to :proceso, :include => :software
          :all,
          :select => '`group`, COUNT(`group`) AS number_of_jobs',
          :group  => '`group`'
+         )
+    end
+
+    def self.process
+      find(
+         :all,
+         :select => '*, COUNT(`proceso_id`) AS number_of_jobs',
+         :group  => '`proceso_id`'
          )
     end
 
@@ -51,7 +60,7 @@ belongs_to :proceso, :include => :software
   
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/4.xml"
+    input_file = "#{JOB_DIR}/6.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
         if node.find('group').to_a.first.content == "neuro"

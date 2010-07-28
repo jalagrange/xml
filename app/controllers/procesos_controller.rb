@@ -9,12 +9,21 @@ class ProcesosController < ApplicationController
       format.xml  { render :xml => @procesos }
     end
   end
+  
+  def stats
+     @procesos = Proceso.all
+
+     respond_to do |format|
+       format.html # index.html.erb
+       format.xml  { render :xml => @procesos }
+     end
+   end
 
   # GET /procesos/1
   # GET /procesos/1.xml
   def show
     @proceso = Proceso.find(params[:id])
-
+    @jobs = @proceso.jobs
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @proceso }

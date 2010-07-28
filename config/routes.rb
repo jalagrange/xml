@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :procesos
 
   map.resources :softwares
+  
+  map.connect 'jobs/datasave', :controller => 'jobs', :action => 'datasave' 
 
   # The priority is based upon order of creation: first created -> highest priority.
 
