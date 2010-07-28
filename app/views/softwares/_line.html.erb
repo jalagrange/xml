@@ -12,10 +12,7 @@ $(document).ready(function() {
          x: -20 //center
       },
      
-      xAxis: {type: 'datetime' ,
-         categories: [	<% for job in @jobs_diarios %>
-			'<%= job.day %>', 
-			<% end %>]
+      xAxis: {type: 'datetime' 
       },
       yAxis: {
          title: {
@@ -27,12 +24,7 @@ $(document).ready(function() {
             color: '#808080'
          }]
       },
-      tooltip: {
-         formatter: function() {
-                   return '<b>'+ this.series.name +'</b><br/>'+
-               this.x +': '+ this.y +' segundos';
-         }
-      },
+     
       legend: {
          layout: 'vertical',
          align: 'right',
@@ -43,13 +35,14 @@ $(document).ready(function() {
       },
 	series: [
 	{	pointInterval: <%= 1.day * 1000 %>,
-		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>, 
 		name:'Waltime',
-		data:[
-		<% for job in @jobs_diarios %>
-		[<%= job.day %>,<%= job.walltime %> ],
-		<% end %>
-		]
+		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
+		      data: [
+			<% for job in @jobs_diarios %>
+	         [(<%= job.day.to_time(:utc).to_i * 1000 %>),<%= job.walltime %>],
+					<% end %>
+					[1280324588000, 300100]
+	         		]
 	},										
 
 	]

@@ -26,7 +26,7 @@ class SoftwaresController < ApplicationController
     @procesos = @software.procesos
     @jobs = @software.jobs
     @jobs_diarios = @jobs.find(:all,
-                               :select => "walltime, day, SUM(jobs.walltime) as walltime",
+                               :select => "jobs.created_at, walltime, day, SUM(jobs.walltime) as walltime",
                                :group => "day")
     respond_to do |format|
       format.html # show.html.erb
