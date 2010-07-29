@@ -24,14 +24,16 @@ $(document).ready(function() {
 <%= render :partial => "bar", :locals => { :div_bar => "bar_chart", :variable_name => "job.day" } %>
 <%= render :partial => "pie", :locals => { :insert_div => "pie_chart", :data => "total_walltime", :title=> "Walltime"} %>
 <%= render :partial => "pie", :locals => { :insert_div => "cpu_pie_chart", :data => "total_cput",:title=> "CPU Time"} %>
-<%= render :partial => "line", :locals => { :insert_div => "walltime_line_chart", :title => "Walltime", :data => "total_walltime"} %>
-<%= render :partial => "line", :locals => { :insert_div => "cput_line_chart", :title => "CPU Time", :data => "total_cput"} %>
+
+<%= render :partial => "line", :locals => { :insert_div => "walltime_line_chart", :title => "Walltime VS CPU Time", :name_data_1 => "Walltime", :name_data_2 => "CPU Time", :data1 => "total_walltime", :data2 => "total_cput"} %>
+
+<%= render :partial => "line", :locals => { :insert_div => "memory_line_chart", :title => "Memory Vs Virtual Memory", :name_data_1 => "Memory", :name_data_2 => "Virtual Memory", :data1 => "total_memory", :data2 => "total_virtual_memory"} %>
 
 <div id="bar_chart" style="width:560px; height:300px"></div>
 <div id="pie_chart" style="width:560px; height:300px"></div>
 <div id="cpu_pie_chart" style="width:560px; height:300px"></div>
 <div id="walltime_line_chart" style="width:560px; height:300px"></div>
-<div id="cput_line_chart" style="width:560px; height:300px"></div>
+<div id="memory_line_chart" style="width:560px; height:300px"></div>
 
 
 

@@ -35,16 +35,25 @@ $(document).ready(function() {
       },
 	series: [
 	{	pointInterval: <%= 1.day * 1000 %>,
-		name:'Waltime',
+		name:'<%= name_data_1 %>',
 		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
 		      data: [
 			<% for job in @daily_jobs %>
-	         <%= job.js_line_chart(data) %>
+	         <%= job.js_line_chart(data1) %>
 					<% end %>
-					[1280324588000, 300100],
-					[1280364588000, 300100]
+				
 	         		]
-	},										
+	},
+	{	pointInterval: <%= 1.day * 1000 %>,
+		name:'<%= name_data_2 %>',
+		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
+		      data: [
+			<% for job in @daily_jobs %>
+	         <%= job.js_line_chart(data2) %>
+					<% end %>
+				
+	         		]
+	}										
 
 	]
 
