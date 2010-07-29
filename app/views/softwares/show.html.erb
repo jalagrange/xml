@@ -22,12 +22,17 @@ $(document).ready(function() {
   <%=h @software.name %>
 </p>
 <%= render :partial => "bar", :locals => { :div_bar => "bar_chart", :variable_name => "job.day" } %>
-<%= render :partial => "pie", :locals => { :div_pie => "pie_chart"} %>
-<%= render :partial => "line", :locals => { :div_line => "line_chart"} %>
+<%= render :partial => "pie", :locals => { :insert_div => "pie_chart", :data => "total_walltime", :title=> "Walltime"} %>
+<%= render :partial => "pie", :locals => { :insert_div => "cpu_pie_chart", :data => "total_cput",:title=> "CPU Time"} %>
+<%= render :partial => "line", :locals => { :insert_div => "walltime_line_chart", :title => "Walltime", :data => "total_walltime"} %>
+<%= render :partial => "line", :locals => { :insert_div => "cput_line_chart", :title => "CPU Time", :data => "total_cput"} %>
 
 <div id="bar_chart" style="width:560px; height:300px"></div>
 <div id="pie_chart" style="width:560px; height:300px"></div>
-<div id="line_chart" style="width:560px; height:300px"></div>
+<div id="cpu_pie_chart" style="width:560px; height:300px"></div>
+<div id="walltime_line_chart" style="width:560px; height:300px"></div>
+<div id="cput_line_chart" style="width:560px; height:300px"></div>
+
 
 
 <table>
@@ -54,9 +59,9 @@ $(document).ready(function() {
 		</tr>
 	</thead>
 	<tbody>
-		<% for job in @jobs_diarios %>
+		<% for job in @daily_jobs %>
 		<tr>
-			<th><%= job.walltime %></th>				
+			<th><%= job.total_walltime %></th>				
 		</tr>
 		<% end %>
 	</tbody>

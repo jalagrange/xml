@@ -2,11 +2,11 @@
 $(document).ready(function() {
    chart = new Highcharts.Chart({
       chart: {
-         renderTo: '<%= div_pie %>',
+         renderTo: '<%= insert_div %>',
          margin: [50, 200, 60, 170]
       },
       title: {
-         text: 'Walltime por dia'
+         text: '<%= title %>'
       },
       plotArea: {
          shadow: null,
@@ -44,14 +44,15 @@ $(document).ready(function() {
          }
       },
 		
-														
+															
 								
        series: [{
          type: 'pie',
          name: 'Browser share',
-         data: [<% for job in @jobs_diarios %>
-            	['<%= job.day %>',<%= job.walltime %>],
-				<% end %>
+         data: [
+		<% for job in @daily_jobs %>
+		     <%= job.js_pie_chart(data) %>
+		<% end %>
 
          ]
       }]

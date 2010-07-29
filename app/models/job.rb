@@ -56,11 +56,19 @@ belongs_to :software
   def self.walltime
      sum(:walltime)
   end
-
+  
+  def js_pie_chart(attr)
+    "['#{self.day}', #{self.send(attr)}],"
+  end
+  
+  def js_line_chart(attr)
+    "[#{self.day.to_time(:utc).to_i * 1000}, #{self.send(attr)}],"
+    
+  end
   
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/6.xml"
+    input_file = "#{JOB_DIR}/7.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
         if node.find('group').to_a.first.content == "neuro"

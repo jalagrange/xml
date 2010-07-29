@@ -41,10 +41,10 @@
 			      },
 			
 		 series: [
-		<% for job in @jobs_diarios %>
+		<% for job in @daily_jobs %>
 						{
 						name:'<%= job.day %>',
-						data:[<%= job.walltime %>]
+						data:[<%= job.total_walltime %>]
 								},										
 								<% end %>
 					      ]

@@ -2,13 +2,13 @@
 $(document).ready(function() {
    chart = new Highcharts.Chart({
       chart: {
-         renderTo: '<%= div_line %>',
+         renderTo: '<%= insert_div %>',
          defaultSeriesType: 'line',
          marginRight: 130,
          marginBottom: 25
       },
       title: {
-         text: 'Walltime',
+         text: '<%= title %>',
          x: -20 //center
       },
      
@@ -38,10 +38,11 @@ $(document).ready(function() {
 		name:'Waltime',
 		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
 		      data: [
-			<% for job in @jobs_diarios %>
-	         [(<%= job.day.to_time(:utc).to_i * 1000 %>),<%= job.walltime %>],
+			<% for job in @daily_jobs %>
+	         <%= job.js_line_chart(data) %>
 					<% end %>
-					[1280324588000, 300100]
+					[1280324588000, 300100],
+					[1280364588000, 300100]
 	         		]
 	},										
 
