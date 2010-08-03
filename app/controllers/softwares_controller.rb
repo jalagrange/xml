@@ -25,7 +25,6 @@ class SoftwaresController < ApplicationController
     @software = Software.find(params[:id])
     @procesos = @software.procesos
     @jobs = @software.jobs
-    @test = "total_walltime"
     @daily_jobs = @jobs.find(:all,
                                :select => "day, SUM(jobs.walltime) as total_walltime,SUM(jobs.cput) as total_cput, SUM(jobs.memory) as total_memory, SUM(jobs.virtual_memory) as total_virtual_memory",
                                :group => "day")

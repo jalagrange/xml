@@ -14,7 +14,10 @@ class ProyectsController < ApplicationController
   # GET /proyects/1.xml
   def show
     @proyect = Proyect.find(params[:id])
-
+    @jobs = @proyect.jobs
+    @daily_jobs = @jobs.find(:all,
+                               :select => "day, SUM(jobs.walltime) as total_walltime,SUM(jobs.cput) as total_cput, SUM(jobs.memory) as total_memory, SUM(jobs.virtual_memory) as total_virtual_memory",
+                               :group => "day")
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @proyect }
