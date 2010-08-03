@@ -14,6 +14,7 @@ class Job < ActiveRecord::Base
 
 belongs_to :proceso
 belongs_to :software
+belongs_to :proyect
 
   JOB_DIR = File.join('data', 'jobs')
 

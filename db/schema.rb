@@ -9,13 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100726140033) do
+ActiveRecord::Schema.define(:version => 20100803093150) do
 
   create_table "jobs", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "jobid",          :limit => 50
-    t.string   "day",            :limit => 50
+    t.date     "day"
     t.time     "time"
     t.string   "user",           :limit => 50
     t.string   "group",          :limit => 50
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20100726140033) do
     t.integer  "virtual_memory"
     t.string   "walltime",       :limit => 15
     t.string   "proyect",        :limit => 10
-    t.integer  "process"
+    t.integer  "proceso_id"
   end
 
   create_table "procesos", :force => true do |t|
@@ -46,9 +46,8 @@ ActiveRecord::Schema.define(:version => 20100726140033) do
     t.datetime "updated_at"
   end
 
-  create_table "processes", :force => true do |t|
+  create_table "proyects", :force => true do |t|
     t.string   "name"
-    t.integer  "software_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,20 @@
+<h1>Listing proyects</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @proyects.each do |proyect| %>
+  <tr>
+    <td><%=h proyect.name %></td>
+    <td><%= link_to 'Show', proyect %></td>
+    <td><%= link_to 'Edit', edit_proyect_path(proyect) %></td>
+    <td><%= link_to 'Destroy', proyect, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New proyect', new_proyect_path %>

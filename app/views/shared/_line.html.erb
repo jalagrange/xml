@@ -1,0 +1,64 @@
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: '<%= insert_div %>',
+         defaultSeriesType: 'line',
+         marginRight: 130,
+         marginBottom: 25
+      },
+      title: {
+         text: '<%= title %>',
+         x: -20 //center
+      },
+     
+      xAxis: {type: 'datetime' 
+      },
+      yAxis: {
+         title: {
+            text: 'Tiempo en segundos'
+         },
+         plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+         }]
+      },
+     
+      legend: {
+         layout: 'vertical',
+         align: 'right',
+         verticalAlign: 'top',
+         x: -10,
+         y: 100,
+         borderWidth: 0
+      },
+	series: [
+	{	pointInterval: <%= 1.day * 1000 %>,
+		name:'<%= name_data_1 %>',
+		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
+		      data: [
+			<% for job in @daily_jobs %>
+	         <%= job.js_line_chart(data1) %>
+					<% end %>
+				
+	         		]
+	},
+	{	pointInterval: <%= 1.day * 1000 %>,
+		name:'<%= name_data_2 %>',
+		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
+		      data: [
+			<% for job in @daily_jobs %>
+	         <%= job.js_line_chart(data2) %>
+					<% end %>
+				
+	         		]
+	}										
+
+	]
+
+   });
+   
+   
+});
+</script>
