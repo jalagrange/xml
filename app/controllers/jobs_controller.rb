@@ -35,6 +35,10 @@ class JobsController < ApplicationController
       end
   end
   
+  def freedisk
+    @folders = Job.disk_free
+  end
+  
   def charts
       @group_counts =  Job.process
       @time_in_queue = Job.time_in_queue

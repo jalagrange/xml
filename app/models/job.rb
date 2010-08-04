@@ -101,6 +101,13 @@ belongs_to :proyect
     jobs
   end
 
+  def self.disk_free()
+    diskfree = `du -k`
+    folders = diskfree.split(/\n/)
+  end
+
+  
+
 end
 
 
