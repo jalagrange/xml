@@ -69,7 +69,7 @@ belongs_to :proyect
   
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/4.xml"
+    input_file = "#{JOB_DIR}/7.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
         if node.find('group').to_a.first.content == "neuro"
