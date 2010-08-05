@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100803093150) do
+ActiveRecord::Schema.define(:version => 20100805093623) do
 
   create_table "jobs", :force => true do |t|
     t.datetime "created_at"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20100803093150) do
     t.integer  "memory"
     t.integer  "virtual_memory"
     t.string   "walltime",       :limit => 15
-    t.string   "proyect",        :limit => 10
+    t.integer  "proyect_id"
     t.integer  "proceso_id"
   end
 
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(:version => 20100803093150) do
   end
 
   create_table "proyects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sequences", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

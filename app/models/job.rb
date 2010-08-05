@@ -69,7 +69,7 @@ belongs_to :proyect
   
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/7.xml"
+    input_file = "#{JOB_DIR}/12.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
         if node.find('group').to_a.first.content == "neuro"
@@ -102,7 +102,7 @@ belongs_to :proyect
   end
 
   def self.disk_free()
-    diskfree = `du -k`
+    diskfree = `du -h /Users/juanlagrange/Sites/xml/data/proyects`
     folders = diskfree.split(/\n/)
   end
 

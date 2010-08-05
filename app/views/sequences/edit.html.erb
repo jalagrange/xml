@@ -1,0 +1,20 @@
+<h1>Editing sequence</h1>
+
+<% form_for(@sequence) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sequence %> |
+<%= link_to 'Back', sequences_path %>

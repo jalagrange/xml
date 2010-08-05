@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @sequence.name %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%=h @sequence.size %>
+</p>
+
+
+<%= link_to 'Edit', edit_sequence_path(@sequence) %> |
+<%= link_to 'Back', sequences_path %>
