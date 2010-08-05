@@ -14,11 +14,12 @@
 	<body class="home blog">
 		<div id="wrapper" class="hfeed">
 			<%= render :partial => "layouts/heading" %>
-
 			<div id="main">
 				<div id="container" class="single-attachment">
 					<div id="content">
-
+							<% if flash[:notice]%>
+								<%= content_tag :div , flash[:notice], :class =>"ui-state-highlight ui-corner-all notice"%>
+							<% end %>
 						<%= yield %>
 
 					</div>	

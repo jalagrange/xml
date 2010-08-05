@@ -1,6 +1,7 @@
 class Sequence < ActiveRecord::Base
 
 belongs_to :proyect
+belongs_to :formato
 
 
   def self.disk_free()

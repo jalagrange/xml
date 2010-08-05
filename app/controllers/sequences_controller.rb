@@ -18,6 +18,8 @@ class SequencesController < ApplicationController
     for sequence in @sequences do
       @split = sequence.name.split('/')
       sequence.proyect = Proyect.find_by_name(@split[7])
+      sequence.formato = Formato.find_by_name(@split[9])
+      
       sequence.save
     end
   end
