@@ -14,13 +14,20 @@ class SequencesController < ApplicationController
   # GET /sequences/1.xml
   
   def freedisk
-    @sequences = Sequence.disk_free
-    for sequence in @sequences do
-      @split = sequence.name.split('/')
-      sequence.proyect = Proyect.find_by_name(@split[7])
-      sequence.formato = Formato.find_by_name(@split[9])
-      
-      sequence.save
+   @sequences = []
+    @proyects = Proyect.all
+    @formatos = Formato.all
+    for proyect in @proyects do
+      for formato in @formatos do
+    @sequences += Sequence.disk_free(proyect, formato)
+        for sequence in @sequences do
+          @split           = sequence.name.split('/')
+          sequence.proyect = Proyect.find_by_name(@split[7])
+          sequence.formato = Formato.find_by_name(@split[9])
+
+          /sequence.save/
+        end
+      end
     end
   end
   
