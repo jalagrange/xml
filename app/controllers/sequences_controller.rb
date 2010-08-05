@@ -16,6 +16,8 @@ class SequencesController < ApplicationController
   def freedisk
     @sequences = Sequence.disk_free
     for sequence in @sequences do
+      @split = sequence.name.split('/')
+      sequence.proyect = Proyect.find_by_name(@split[7])
       sequence.save
     end
   end
