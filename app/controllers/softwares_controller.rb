@@ -25,9 +25,30 @@ class SoftwaresController < ApplicationController
     @software = Software.find(params[:id])
     @procesos = @software.procesos
     @jobs = @software.jobs
-    @daily_jobs = @jobs.find(:all,
-                               :select => "day, SUM(jobs.walltime) as total_walltime,SUM(jobs.cput) as total_cput, SUM(jobs.memory) as total_memory, SUM(jobs.virtual_memory) as total_virtual_memory",
-                               :group => "day")
+    @data = []
+    
+    data1 = {}
+    data2 = {}
+    data3 = {}
+    data4 = {}
+    data1[:name] = "Virtual Memory"
+    data1[:data] = @jobs.total_virtual_memory_by_day
+    data2[:name] = "Memory"
+    data2[:data] = @jobs.total_memory_by_day
+    data3[:name] = "Queue Time"
+    data3[:data] = @jobs.total_queue_time_by_day
+    data4[:name] = "Wall Time"
+    data4[:data] = @jobs.total_walltime_by_day
+    @data << data1
+    @data << data2
+    @data << data3
+    @data << data4
+    
+
+    
+
+    
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @software }

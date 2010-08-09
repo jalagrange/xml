@@ -34,27 +34,19 @@ $(document).ready(function() {
          borderWidth: 0
       },
 	series: [
+	
+	<% for series in @data %>
 	{	pointInterval: <%= 1.day * 1000 %>,
-		name:'<%= name_data_1 %>',
+		name:<%= "'#{series[:name]}'"%>,
 		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
 		      data: [
-			<% for job in @daily_jobs %>
-	         <%= job.js_line_chart(data1) %>
-					<% end %>
+			<% for chart in series[:data] %>
+	         <%= "[#{chart.day.to_time(:utc).to_i * 1000}, #{chart.data_attribute}]," %>
+			<% end %>
 				
 	         		]
-	},
-	{	pointInterval: <%= 1.day * 1000 %>,
-		name:'<%= name_data_2 %>',
-		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
-		      data: [
-			<% for job in @daily_jobs %>
-	         <%= job.js_line_chart(data2) %>
-					<% end %>
-				
-	         		]
-	}										
-
+	},										
+	<% end %>
 	]
 
    });

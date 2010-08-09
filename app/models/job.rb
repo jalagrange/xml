@@ -16,6 +16,8 @@ belongs_to :proceso
 belongs_to :software
 belongs_to :proyect
 
+SeriesData = Struct.new(:name, :data)
+
   JOB_DIR = File.join('data', 'jobs')
 
     def self.groups
@@ -34,6 +36,43 @@ belongs_to :proyect
          )
     end
 
+    def self.total_memory_by_day
+      find(
+          :all,
+          :select => "day, SUM(memory) as data_attribute, 'Memory' as name",
+          :group => "day")
+    end
+
+    def self.total_virtual_memory_by_day
+      find(
+          :all,
+          :select => "day, SUM(virtual_memory) as data_attribute, 'Virtual Memory' as name",
+          :group => "day")
+    end
+  
+    def self.total_walltime_by_day
+      find(
+          :all,
+          :select => "day, SUM(walltime) as data_attribute, 'Walltime' as name",
+          :group => "day")
+    end
+    
+    def self.total_cput_by_day
+      find(
+          :all,
+          :select => "day, SUM(cput) as data_attribute, 'CPU Time' as name",
+          :group => "day")
+    end
+    
+    def self.total_queue_time_by_day
+      find(
+          :all,
+          :select => "day, SUM(start) - SUM(ctime) as data_attribute, 'Queue Time' as name",
+          :group => "day")
+    end
+    
+    
+    
   def self.time_in_queue
     sum(:start) - sum(:ctime)
   end

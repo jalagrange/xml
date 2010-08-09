@@ -5,7 +5,7 @@
 					<div id="site-description">
 				
 					</div>
-					<%= image_tag("banner.png",:size => "940x198", :alt => "", :class =>"redondeado")%>
+					<%= image_tag("header2.png", :alt => "", :class =>"redondeado")%>
 
 				</div><!-- #branding -->
 		<div id="access">
@@ -15,7 +15,7 @@
 			<div class="menu-header">
 				<ul id="menu-menu-principal"class="menu">
 					<li id="menu-item-37" class="menu-item menu-item-type-custom">
-						<%=link_to "Jobs" %>
+						<%=link_to "Jobs", jobs_path%>
 						
 					</li>
 					<li id="menu-item-37" class="menu-item menu-item-type-custom">
@@ -48,8 +48,11 @@
 							</ul>
 						</li>
 					<li id="menu-item-37" class="menu-item menu-item-type-custom">
-						<%=link_to "Sequences"%>
-								
+						<%=link_to "Sequences", sequences_path%>
+						<ul class="sub-menu">										
+							<li id="menu-item-38" class="menu-item menu-item-type-post_type ultimo">
+								<%=link_to "Free Disk", freedisk_sequences_path %></li>						
+						</ul>		
 					</li>
 					
 			

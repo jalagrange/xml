@@ -21,20 +21,12 @@ $(document).ready(function() {
   <b>Name:</b>
   <%=h @software.name %>
 </p>
-<%= render :partial => "shared/bar", :locals => { :div_bar => "bar_chart", :variable_name => "job.day" } %>
-<%= render :partial => "shared/pie", :locals => { :insert_div => "pie_chart", :data => "total_walltime", :title=> "Walltime"} %>
-<%= render :partial => "shared/pie", :locals => { :insert_div => "cpu_pie_chart", :data => "total_cput",:title=> "CPU Time"} %>
 
-<%= render :partial => "shared/line", :locals => { :insert_div => "walltime_line_chart", :title => "Walltime VS CPU Time", :name_data_1 => "Walltime", :name_data_2 => "CPU Time", :data1 => "total_walltime", :data2 => "total_cput"} %>
 
-<%= render :partial => "shared/line", :locals => { :insert_div => "memory_line_chart", :title => "Memory Vs Virtual Memory", :name_data_1 => "Memory", :name_data_2 => "Virtual Memory", :data1 => "total_memory", :data2 => "total_virtual_memory"} %>
+<%= render :partial => "shared/line", :locals => { :insert_div => "memory_line_chart", :title => "Memory Vs Virtual Memory", :name_data_1 => "Memory", :name_data_2 => "Virtual Memory", :data1 => "total_memory"} %>
 
-<div id="bar_chart" style="width:560px; height:300px"></div>
-<div id="pie_chart" style="width:560px; height:300px"></div>
-<div id="cpu_pie_chart" style="width:560px; height:300px"></div>
-<div id="walltime_line_chart" style="width:560px; height:300px"></div>
+
 <div id="memory_line_chart" style="width:560px; height:300px"></div>
-
 
 
 <table>
@@ -53,21 +45,6 @@ $(document).ready(function() {
 	</tbody>
 </table>
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			
-		</tr>
-	</thead>
-	<tbody>
-		<% for job in @daily_jobs %>
-		<tr>
-			<th><%= job.total_walltime %></th>				
-		</tr>
-		<% end %>
-	</tbody>
-</table>
 
 <%= link_to 'Edit', edit_software_path(@software) %> |
 <%= link_to 'Back', softwares_path %>

@@ -24,8 +24,7 @@ class SequencesController < ApplicationController
           @split           = sequence.name.split('/')
           sequence.proyect = Proyect.find_by_name(@split[7])
           sequence.formato = Formato.find_by_name(@split[9])
-
-          /sequence.save/
+          sequence.save
         end
       end
     end
