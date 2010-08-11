@@ -15,14 +15,14 @@ class SequencesController < ApplicationController
   
   def freedisk
    @sequences = []
-    @proyects = Proyect.all
+    @projects = Project.all
     @formatos = Formato.all
-    for proyect in @proyects do
+    for project in @projects do
       for formato in @formatos do
-    @sequences += Sequence.disk_free(proyect, formato)
+    @sequences += Sequence.disk_free(project, formato)
         for sequence in @sequences do
           @split           = sequence.name.split('/')
-          sequence.proyect = Proyect.find_by_name(@split[7])
+          sequence.project = Project.find_by_name(@split[7])
           sequence.formato = Formato.find_by_name(@split[9])
           sequence.save
         end

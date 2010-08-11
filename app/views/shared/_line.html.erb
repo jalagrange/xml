@@ -40,8 +40,8 @@ $(document).ready(function() {
 		name:<%= "'#{series[:name]}'"%>,
 		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
 		      data: [
-			<% for chart in series[:data] %>
-	         <%= "[#{chart.day.to_time(:utc).to_i * 1000}, #{chart.data_attribute}]," %>
+			<% for datapoint in series[:data] %>
+	         <%= "[#{datapoint.day.to_time(:utc).to_i * 1000}, #{datapoint.data_attribute}]," %>
 			<% end %>
 				
 	         		]

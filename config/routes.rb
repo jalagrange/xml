@@ -2,9 +2,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :formatos
 
 
-  map.resources :proyects
+  map.resources :projects
 
   map.resources :procesos
+  
+  map.resources :charts
 
   map.resources :softwares
   

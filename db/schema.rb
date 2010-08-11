@@ -9,7 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100805132133) do
+ActiveRecord::Schema.define(:version => 20100811094330) do
+
+  create_table "charts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "formatos", :force => true do |t|
     t.string   "name"
@@ -41,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20100805132133) do
     t.integer  "memory"
     t.integer  "virtual_memory"
     t.string   "walltime",       :limit => 15
-    t.integer  "proyect_id"
+    t.integer  "project_id"
     t.integer  "proceso_id"
   end
 
@@ -52,7 +57,13 @@ ActiveRecord::Schema.define(:version => 20100805132133) do
     t.datetime "updated_at"
   end
 
-  create_table "proyects", :force => true do |t|
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

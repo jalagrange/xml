@@ -21,7 +21,7 @@ $(document).ready(function() {
 			<table id="jobs" title="jobs" summary="Tiene los trabajos ejecutados en PBS">
 			<thead>
 				<tr>
-					<th>Proyecto</th>
+					<th>Projecto</th>
 					<th>Software</th>
 					<th>Proceso</th>					
 				</tr>		
@@ -29,7 +29,7 @@ $(document).ready(function() {
 			<tbody>
 					<% for job in @jobs %>
 					<tr>
-							<td><%= job.proyect %></td>
+							<td><%= job.project %></td>
 							<td><%= job.proceso.software.name %></td>
 							<td><%= job.proceso.name %></td>										
 					</tr>

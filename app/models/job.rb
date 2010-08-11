@@ -14,7 +14,7 @@ class Job < ActiveRecord::Base
 
 belongs_to :proceso
 belongs_to :software
-belongs_to :proyect
+belongs_to :project
 
 SeriesData = Struct.new(:name, :data)
 
@@ -108,7 +108,7 @@ SeriesData = Struct.new(:name, :data)
   
   def self.build_from_xml()
     jobs = []
-    input_file = "#{JOB_DIR}/12.xml"
+    input_file = "#{JOB_DIR}/14.xml"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
         if node.find('group').to_a.first.content == "neuro"
@@ -141,7 +141,7 @@ SeriesData = Struct.new(:name, :data)
   end
 
   def self.disk_free()
-    diskfree = `du -h /Users/juanlagrange/Sites/xml/data/proyects`
+    diskfree = `du -h /Users/juanlagrange/Sites/xml/data/projects`
     folders = diskfree.split(/\n/)
   end
 

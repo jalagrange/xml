@@ -1,12 +1,12 @@
 class Sequence < ActiveRecord::Base
 
-belongs_to :proyect
+belongs_to :project
 belongs_to :formato
 
 
-  def self.disk_free(proyect, formato)
+  def self.disk_free(project, formato)
     s = []
-    diskfree = `du -k -d=1 /Users/juanlagrange/Sites/xml/data/proyects/'#{proyect.name}'/original/'#{formato.name}'/*`
+    diskfree = `du -k -d=1 /Users/juanlagrange/Sites/xml/data/projects/'#{project.name}'/original/'#{formato.name}'/*`
     folders = diskfree.split(/\n/)
     sequences = folders.collect {|x| x.split(' ') }
     for  sequence in sequences do

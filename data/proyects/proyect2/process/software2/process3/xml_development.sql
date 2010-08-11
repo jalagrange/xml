@@ -46,7 +46,7 @@ CREATE TABLE `jobs` (
   `memory` int(50) default NULL,
   `virtual_memory` int(50) default NULL,
   `walltime` varchar(15) default NULL,
-  `proyect_id` int(10) default NULL,
+  `project_id` int(10) default NULL,
   `proceso_id` int(10) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1154 DEFAULT CHARSET=latin1;
@@ -80,10 +80,10 @@ INSERT INTO `procesos` VALUES ('1', 'fsproc', '1', null, null), ('3', 'pial', '2
 COMMIT;
 
 -- ----------------------------
---  Table structure for `proyects`
+--  Table structure for `projects`
 -- ----------------------------
-DROP TABLE IF EXISTS `proyects`;
-CREATE TABLE `proyects` (
+DROP TABLE IF EXISTS `projects`;
+CREATE TABLE `projects` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) default NULL,
   `created_at` datetime default NULL,
@@ -92,10 +92,10 @@ CREATE TABLE `proyects` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
---  Records of `proyects`
+--  Records of `projects`
 -- ----------------------------
 BEGIN;
-INSERT INTO `proyects` VALUES ('1', 'DEPR', '2010-08-03 09:35:08', '2010-08-03 09:35:08');
+INSERT INTO `projects` VALUES ('1', 'DEPR', '2010-08-03 09:35:08', '2010-08-03 09:35:08');
 COMMIT;
 
 -- ----------------------------
