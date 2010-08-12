@@ -20,8 +20,8 @@ class ChartsController < ApplicationController
       @projects = Project.find(params[:project_ids]) 
     end 
     @resources = Resource.find(params[:resource_ids])
-    @from = DateTime.parse(params[:from])
-    @to = DateTime.parse(params[:to])
+    @from = DateTime.parse(@chart.from)
+    @to = DateTime.parse(@chart.to)
     @data = []
 
     if  !(params[:software_ids].nil? || params[:project_ids].nil?)
@@ -46,6 +46,10 @@ class ChartsController < ApplicationController
     end
   end
 
+  def test
+  @chart = Chart.new(params[:chart])
+  end
+  
   def process_chart_with_all_variables(softwares, projects, resources)
 
     softwares.each do |software|
@@ -55,7 +59,7 @@ class ChartsController < ApplicationController
         @resources.each do |resource|
           data1 = {}
 
-          data1[:name] = "#{resource.name} #{software.name} #{project.name}"
+          data1[:name] = "#{resource.name.capitalize!} #{software.name} #{project.name}"
           data1[:data] = @jobs.find(
           :all,
           :select => "day, SUM(#{resource.name}) as data_attribute",
@@ -77,7 +81,7 @@ class ChartsController < ApplicationController
        resources.each do |resource|
          data1 = {}
 
-         data1[:name] = "#{resource.name} #{project.name}"
+         data1[:name] = "#{resource.name.capitalize!} #{project.name}"
          data1[:data] = @jobs.find(
          :all,
          :select => "day, SUM(#{resource.name}) as data_attribute",
@@ -99,7 +103,7 @@ class ChartsController < ApplicationController
       @resources.each do |resource|
         data1 = {}
 
-        data1[:name] = "#{resource.name} #{software.name}"
+        data1[:name] = "#{resource.name.capitalize!} #{software.name}"
         data1[:data] = @jobs.find(
         :all,
         :select => "day, SUM(#{resource.name}) as data_attribute",
@@ -116,7 +120,7 @@ class ChartsController < ApplicationController
   def process_chart_with_resources_only(resources)
       resources.each do |resource|
         data1 = {}
-        data1[:name] = "#{resource.name}"
+        data1[:name] = "#{resource.name.capitalize!}"
         data1[:data] = Job.find(
         :all,
         :select => "day, SUM(#{resource.name}) as data_attribute",

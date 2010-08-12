@@ -1,10 +1,13 @@
 class Chart 
 
   
-attr_accessor :title, :series, :to
+attr_accessor :title, :series, :to, :from
 
-  def initialize(title = nil, series = [], to = nil)
-      @title, @series, @to = title, series, to
+def initialize( options = {} )
+    @title = options[:title]
+    @to = options[:to]
+    @from = options[:from]
+    @series = []
   end
 
   def show

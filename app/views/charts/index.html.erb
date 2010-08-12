@@ -3,12 +3,12 @@
 <%= stylesheet_link_tag 'demo_table_jui' %>
 <script type="text/javascript">
 	$(function() {
-		var dates = $('#from, #to').datepicker({
+		var dates = $('#chart_from, #chart_to').datepicker({
 			defaultDate: "-1m",
 			changeMonth: true,
 			numberOfMonths: 2,
 			onSelect: function(selectedDate) {
-				var option = this.id == "from" ? "minDate" : "maxDate";
+				var option = this.id == "chart_from" ? "minDate" : "maxDate";
 				var instance = $(this).data("datepicker");
 				var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
 				dates.not(this).datepicker("option", option, date);
@@ -21,12 +21,6 @@
 			$("#tabs").tabs();
 		});
 		</script>
-		<script type="text/javascript">
-			$(function() {
-				$("#check").button();
-				$("#format").buttonset();
-			});
-			</script>
 <% end %>
 <p>
   <b>Charts:</b>
@@ -37,12 +31,12 @@
 	<%= f.text_field :title %>
 </p>
 	<p>
-	<%= label_tag "From" %><br />
-	<%= text_field_tag "from" %>
+	<%= f.label :from %><br />
+	<%= f.text_field :from %>
 </p>
 <p>
-	<%= label_tag "To" %><br />
-	<%= text_field_tag "to" %>
+	<%= f.label :to %><br />
+	<%= f.text_field :to %>
 	</p>
 
 <div id="tabs">
@@ -74,7 +68,7 @@
 		<p>
 			<% for resource in Resource.find(:all) %>  
 				<%= check_box_tag "resource_ids[]", resource.id %>  
-				<%= resource.name %>    
+				<%= resource.name.capitalize! %>    
 			<% end %>
 		</p>
 	</div>
