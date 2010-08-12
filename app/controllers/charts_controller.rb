@@ -11,7 +11,7 @@ class ChartsController < ApplicationController
   end
 
   def show
-    
+
     @chart = Chart.new(params[:chart])
     if  !(params[:software_ids].nil?)
       @softwares = Software.find(params[:software_ids])
@@ -20,26 +20,23 @@ class ChartsController < ApplicationController
       @projects = Project.find(params[:project_ids]) 
     end 
     @resources = Resource.find(params[:resource_ids])
-    
     @data = []
-  
+
     if  !(params[:software_ids].nil? || params[:project_ids].nil?)
-      if  !(@softwares.empty? || @projects.empty?)
-        process_chart_with_all_variables(@softwares, @projects, @resources)
-      end
+      process_chart_with_all_variables(@softwares, @projects, @resources)
     end
-   
-   if  (params[:software_ids].nil?)
 
-     process_chart_with_projects_only(@projects, @resources)
-   end
- 
-    if  (params[:project_ids].nil?)
+    if  (params[:software_ids].nil? && !(params[:project_ids].nil?) )
+      process_chart_with_projects_only(@projects, @resources)
+    end
 
+    if  (params[:project_ids].nil? && !(params[:softwares_ids].nil?))
       process_chart_with_softwares_only(@softwares, @resources)
     end
     
-    
+    if  (params[:project_ids].nil? && params[:software_ids].nil?)
+      process_chart_with_resources_only(@resources)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -108,6 +105,21 @@ class ChartsController < ApplicationController
         end
       end
     end
+    return @data 
+  end
+  
+  def process_chart_with_resources_only(resources)
+      resources.each do |resource|
+        data1 = {}
+        data1[:name] = "#{resource.name}"
+        data1[:data] = Job.find(
+        :all,
+        :select => "day, SUM(#{resource.name}) as data_attribute",
+        :group => "day")
+        if  !(data1[:data].nil? || data1[:data].empty?)
+          @data << data1
+        end
+      end
     return @data 
   end
 

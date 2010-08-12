@@ -1,10 +1,10 @@
 class Chart 
 
   
-attr_accessor :title, :series
+attr_accessor :title, :series, :to
 
-  def initialize(title = nil, series = [])
-      @title, @series = title, series
+  def initialize(title = nil, series = [], to = nil)
+      @title, @series, @to = title, series, to
   end
 
   def show

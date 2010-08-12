@@ -2,69 +2,79 @@
 <%= javascript_include_tag 'jquery.dataTables','highcharts','js/modules/exporting.js' %> 
 <%= stylesheet_link_tag 'demo_table_jui' %>
 <script type="text/javascript">
-$(document).ready(function() {
-
-	$('#jobs').dataTable({
-	 "bJQueryUI": true,
-		"aoColumns": [
-			null,
-            null
-        ]
-                   
+	$(function() {
+		var dates = $('#from, #to').datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			onSelect: function(selectedDate) {
+				var option = this.id == "from" ? "minDate" : "maxDate";
+				var instance = $(this).data("datepicker");
+				var date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+				dates.not(this).datepicker("option", option, date);
+			}
+		});
 	});
-});
-</script>
- <% end %>
-
-
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			$("#tabs").tabs();
+		});
+		</script>
+		<script type="text/javascript">
+			$(function() {
+				$("#check").button();
+				$("#format").buttonset();
+			});
+			</script>
+<% end %>
 <p>
   <b>Charts:</b>
 </p>
-
 <% form_for :chart , :url => { :action => "show" } do |f| %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
- 
-<p>Select Project:</p>
 <p>
-   	<% for project in Project.find(:all) %>  
-	    <div>  
-	      <%= check_box_tag "project_ids[]", project.id %>  
-	      <%= project.name %>  
-	    </div>  
-	<% end %>
-  </p>
-
-<p>Select Software:</p>
+	<%= f.label :title %><br />
+	<%= f.text_field :title %>
+</p>
 <p>
-   	<% for software in Software.find(:all) %>  
-	    <div>  
-	      <%= check_box_tag "software_ids[]", software.id %>  
-	      <%= software.name %>  
-	    </div>  
-	<% end %>
-  </p>
-<p>Select Resource:</p>
-<p>
-   	<% for resource in Resource.find(:all) %>  
-	    <div>  
-	      <%= check_box_tag "resource_ids[]", resource.id %>  
-	      <%= resource.name %>  
-	    </div>  
-	<% end %>
-  </p>
+	<%= label_tag "To" %><br />
+	<%= text_field_tag "to" %>
+</p>
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Select Project:</a></li>
+		<li><a href="#tabs-2">Select Software:</a></li>
+		<li><a href="#tabs-3">Select Resource:</a></li>
+	</ul>
+	<div id="tabs-1">
+
+		<p>
+			<% for project in Project.find(:all) %>
+				<%= check_box_tag "project_ids[]", project.id %>  
+				<%= project.name %>
+			<% end %>
+		</p>
 
 
+	</div>
+	<div id="tabs-2">
+		<p>
+			<% for software in Software.find(:all) %>   
+				<%= check_box_tag "software_ids[]", software.id %>  
+				<%= software.name %>   
+			<% end %>
+		</p>
+	</div>
+	<div id="tabs-3">
+		<p>
+			<% for resource in Resource.find(:all) %>  
+				<%= check_box_tag "resource_ids[]", resource.id %>  
+				<%= resource.name %>    
+			<% end %>
+		</p>
+	</div>
+</div>
 
-    <%= f.submit "Create Chart" %>
-  </p>
+<%= f.submit "Create Chart" %>
+
 <% end %>
 
-
-
-
-
-<%= link_to 'Back', softwares_path %>
