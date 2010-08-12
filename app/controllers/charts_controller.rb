@@ -20,6 +20,8 @@ class ChartsController < ApplicationController
       @projects = Project.find(params[:project_ids]) 
     end 
     @resources = Resource.find(params[:resource_ids])
+    @from = DateTime.parse(params[:from])
+    @to = DateTime.parse(params[:to])
     @data = []
 
     if  !(params[:software_ids].nil? || params[:project_ids].nil?)
@@ -30,7 +32,7 @@ class ChartsController < ApplicationController
       process_chart_with_projects_only(@projects, @resources)
     end
 
-    if  (params[:project_ids].nil? && !(params[:softwares_ids].nil?))
+    if  (params[:project_ids].nil? && !(params[:software_ids].nil?))
       process_chart_with_softwares_only(@softwares, @resources)
     end
     
@@ -58,6 +60,7 @@ class ChartsController < ApplicationController
           :all,
           :select => "day, SUM(#{resource.name}) as data_attribute",
           :conditions => "project_id = '#{project.id}'",
+          :conditions => {:day => (@from)..(@to)},
           :group => "day")
           if  !(data1[:data].nil? || data1[:data].empty?)
             @data << data1
@@ -78,6 +81,7 @@ class ChartsController < ApplicationController
          data1[:data] = @jobs.find(
          :all,
          :select => "day, SUM(#{resource.name}) as data_attribute",
+         :conditions => {:day => (@from)..(@to)},
          :group => "day")
          if  !(data1[:data].nil? || data1[:data].empty?)
            @data << data1
@@ -99,6 +103,7 @@ class ChartsController < ApplicationController
         data1[:data] = @jobs.find(
         :all,
         :select => "day, SUM(#{resource.name}) as data_attribute",
+        :conditions => {:day => (@from)..(@to)},
         :group => "day")
         if  !(data1[:data].nil? || data1[:data].empty?)
           @data << data1
@@ -115,6 +120,7 @@ class ChartsController < ApplicationController
         data1[:data] = Job.find(
         :all,
         :select => "day, SUM(#{resource.name}) as data_attribute",
+        :conditions => {:day => (@from)..(@to)},
         :group => "day")
         if  !(data1[:data].nil? || data1[:data].empty?)
           @data << data1

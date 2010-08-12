@@ -4,8 +4,9 @@
 <script type="text/javascript">
 	$(function() {
 		var dates = $('#from, #to').datepicker({
-			defaultDate: "+1w",
+			defaultDate: "-1m",
 			changeMonth: true,
+			numberOfMonths: 2,
 			onSelect: function(selectedDate) {
 				var option = this.id == "from" ? "minDate" : "maxDate";
 				var instance = $(this).data("datepicker");
@@ -35,10 +36,15 @@
 	<%= f.label :title %><br />
 	<%= f.text_field :title %>
 </p>
+	<p>
+	<%= label_tag "From" %><br />
+	<%= text_field_tag "from" %>
+</p>
 <p>
 	<%= label_tag "To" %><br />
 	<%= text_field_tag "to" %>
-</p>
+	</p>
+
 <div id="tabs">
 	<ul>
 		<li><a href="#tabs-1">Select Project:</a></li>
