@@ -1,7 +1,7 @@
 <% content_for :head do %>  
-<%= javascript_include_tag 'jquery.dataTables','highcharts','js/modules/exporting.js' %> 
-<%= stylesheet_link_tag 'demo_table_jui' %>
-<script type="text/javascript">
+	<%= javascript_include_tag 'jquery.dataTables','highcharts','js/modules/exporting.js' %> 
+	<%= stylesheet_link_tag 'demo_table_jui' %>
+	<script type="text/javascript">
 	$(function() {
 		var dates = $('#chart_from, #chart_to').datepicker({
 			defaultDate: "-1m",
@@ -17,64 +17,67 @@
 	});
 	</script>
 	<script type="text/javascript">
-		$(function() {
-			$("#tabs").tabs();
-		});
-		</script>
-<% end %>
-<p>
-  <b>Charts:</b>
-</p>
-<% form_for :chart , :url => { :action => "show" } do |f| %>
-<p>
-	<%= f.label :title %><br />
-	<%= f.text_field :title %>
-</p>
+	$(function() {
+		$("#tabs").tabs();
+	});
+	</script>
+	<% end %>
 	<p>
-	<%= f.label :from %><br />
-	<%= f.text_field :from %>
-</p>
-<p>
-	<%= f.label :to %><br />
-	<%= f.text_field :to %>
+		<b>Charts:</b>
+	</p>
+	<% form_for :chart, @chart, :url => { :action => "show" }, :html=>{:class=>"form"}  do |f| %>
+	<%= error_messages_for :chart, 
+							:header_message => "Please Try Again!", 
+							:message => "Please fill the following fields:" %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :from %>
+		<%= f.text_field :from %>
+	</p>
+	<p>
+		<%= f.label :to %>
+		<%= f.text_field :to %>
 	</p>
 
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">Select Project:</a></li>
-		<li><a href="#tabs-2">Select Software:</a></li>
-		<li><a href="#tabs-3">Select Resource:</a></li>
-	</ul>
-	<div id="tabs-1">
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">Select Project:</a></li>
+			<li><a href="#tabs-2">Select Software:</a></li>
+			<li><a href="#tabs-3">Select Resource:</a></li>
+		</ul>
+		<div id="tabs-1">
 
-		<p>
-			<% for project in Project.find(:all) %>
+			<p>
+				<% for project in Project.find(:all) %>
 				<%= check_box_tag "project_ids[]", project.id %>  
 				<%= project.name %>
-			<% end %>
-		</p>
+				<% end %>
+			</p>
 
 
-	</div>
-	<div id="tabs-2">
-		<p>
-			<% for software in Software.find(:all) %>   
+		</div>
+		<div id="tabs-2">
+			<p>
+				<% for software in Software.find(:all) %>   
 				<%= check_box_tag "software_ids[]", software.id %>  
 				<%= software.name %>   
-			<% end %>
-		</p>
-	</div>
-	<div id="tabs-3">
-		<p>
-			<% for resource in Resource.find(:all) %>  
+				<% end %>
+			</p>
+		</div>
+		<div id="tabs-3">
+			<p>
+				<% for resource in Resource.find(:all) %>  
 				<%= check_box_tag "resource_ids[]", resource.id %>  
 				<%= resource.name.capitalize! %>    
-			<% end %>
-		</p>
+				<% end %>
+			</p>
+		</div>
 	</div>
-</div>
 
-<%= f.submit "Create Chart" %>
+	<%= f.submit "Create Chart" %>
 
-<% end %>
+	<% end %>
 
