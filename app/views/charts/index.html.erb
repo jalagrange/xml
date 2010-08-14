@@ -71,7 +71,7 @@
 			<p>
 				<% for resource in Resource.find(:all) %>  
 				<%= check_box_tag "resource_ids[]", resource.id %>  
-				<%= resource.name.capitalize! %>    
+				<%= resource.view_name %>    
 				<% end %>
 			</p>
 		</div>

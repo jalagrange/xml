@@ -31,7 +31,7 @@ class ChartsController < ApplicationController
           @projects = Project.find(params[:project_ids]) 
         end
 
-        if  !(params[:software_ids].nil? || params[:project_ids].nil?)
+        if  !(params[:software_ids].nil? && params[:project_ids].nil?)
           process_chart_with_all_variables(@softwares, @projects, @resources)
         end
 
@@ -71,18 +71,16 @@ class ChartsController < ApplicationController
   def process_chart_with_all_variables(softwares, projects, resources)
 
     softwares.each do |software|
-      procesos = software.procesos
       @jobs = software.jobs
       projects.each do |project|
-        @resources.each do |resource|
+        resources.each do |resource|
           data1 = {}
 
           data1[:name] = "#{resource.view_name} #{software.name} #{project.name}"
           data1[:data] = @jobs.find(
           :all,
           :select => "day, SUM(#{resource.name}) as data_attribute",
-          :conditions => "project_id = '#{project.id}'",
-          :conditions => {:day => (@from)..(@to)},
+          :conditions => {:day => (@from)..(@to), :project_id => project.id},
           :group => "day")
           if  !(data1[:data].nil? || data1[:data].empty?)
             @data << data1
