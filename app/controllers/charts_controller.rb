@@ -31,7 +31,7 @@ class ChartsController < ApplicationController
           @projects = Project.find(params[:project_ids]) 
         end
 
-        if  !(params[:software_ids].nil? && params[:project_ids].nil?)
+        if  !(params[:software_ids].nil? || params[:project_ids].nil?)
           process_chart_with_all_variables(@softwares, @projects, @resources)
         end
 

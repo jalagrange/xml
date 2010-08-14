@@ -27,6 +27,8 @@ class JobsController < ApplicationController
       job.proceso = Proceso.find_by_name(@split[1])
       job.walltime = total_seconds(job.walltime)
       job.cput = total_seconds(job.cput)
+      job.time_in_queue = (job.start.to_i) - (job.ctime.to_i)
+      job.time_in_execution = (job.end.to_i) - (job.start.to_i)
       job.save
     end
      respond_to do |format|
