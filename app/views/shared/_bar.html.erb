@@ -2,11 +2,11 @@
 	$(function() {
 		new Highcharts.Chart({
 			chart: {
-				renderTo: "<%= div_bar %>",
+				renderTo: "<%= insert_div %>",
 				defaultSeriesType: 'bar'
 			},
 			title: {
-				text: "Walltime"
+				text: '<%= @chart.title %>'
 			},
 			xAxis:{
 				categories: ['Grupos']
@@ -40,14 +40,20 @@
 			         backgroundColor: '#FFFFFF'
 			      },
 			
-		 series: [
-		<% for job in @daily_jobs %>
-						{
-						name:'<%= job.day %>',
-						data:[<%= job.total_walltime %>]
-								},										
-								<% end %>
-					      ]
+				series: [
+
+				<% for series in @data %>
+				{	
+					name:<%= "'#{series[:name]}'"%>,
+					data: [
+						<% for datapoint in series[:data] %>
+				         <%= "#{datapoint.data_attribute}," %>
+						<% end %>
+
+				         		]
+				},										
+				<% end %>
+				]
 			});
 		});
 </script>

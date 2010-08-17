@@ -1,0 +1,56 @@
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: '<%= insert_div %>',
+         defaultSeriesType: 'line',
+         marginRight: 130,
+         marginBottom: 25
+      },
+      title: {
+         text: '<%= @chart.title %>',
+         x: -20 //center
+      },
+     
+      xAxis: {type: 'datetime' 
+      },
+      yAxis: {
+         title: {
+            text: 'Tiempo en segundos'
+         },
+         plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+         }]
+      },
+     
+      legend: {
+         layout: 'vertical',
+         align: 'right',
+         verticalAlign: 'top',
+         x: -10,
+         y: 100,
+         borderWidth: 0
+      },
+	series: [
+	
+	<% for series in @data %>
+	{	pointInterval: <%= 1.day * 1000 %>,
+		name:<%= "'#{series[:name]}'"%>,
+		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
+		      data: [
+			<% for datapoint in series[:data] %>
+	         <%= "[#{datapoint.created_at.to_time(:utc).to_i * 1000}, #{datapoint.data_attribute}]," %>
+			<% end %>
+				
+	         		]
+	},										
+	<% end %>
+	]
+
+   });
+   
+   
+});
+</script>

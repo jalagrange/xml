@@ -6,13 +6,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :procesos
   
-  map.resources :charts
+  map.resources :charts, :collection => {:disk_space => :get, :test => :get}
 
   map.resources :softwares
   
   map.resources :sequences, :collection => {:freedisk => :get}
   
-  map.resources :jobs, :collection => {:datasave => :get}
+  map.resources :jobs, :collection => {:datasave => :get, :ssh_test => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
 

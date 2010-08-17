@@ -6,7 +6,7 @@ $(document).ready(function() {
          margin: [50, 200, 60, 170]
       },
       title: {
-         text: '<%= title %>'
+         text: '<%= @chart.title %>'
       },
       plotArea: {
          shadow: null,
@@ -44,18 +44,22 @@ $(document).ready(function() {
          }
       },
 		
-															
-								
-       series: [{
-         type: 'pie',
-         name: 'Browser share',
-         data: [
-		<% for job in @daily_jobs %>
-		     <%= job.js_pie_chart(data) %>
-		<% end %>
+		series: [
 
-         ]
-      }]
+		<% for series in @data %>
+		{	type: 'pie',
+         	name: 'Browser share',  
+			data: [
+				<% for datapoint in series[:data] %>
+		         <%= "['#{series[:name]}', #{datapoint.data_attribute}]," %>
+				<% end %>
+
+		         		]
+		},										
+		<% end %>
+		]													
+								
+    
    });
 });
 </script>

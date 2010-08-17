@@ -37,6 +37,15 @@ class JobsController < ApplicationController
       end
   end
   
+  def ssh_test
+    Job.ssh_test
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @jobs }
+    end
+
+  end
+  
   def charts
       @group_counts =  Job.process
       @time_in_queue = Job.time_in_queue

@@ -9,6 +9,9 @@
 #---
 
 require 'xml/libxml'
+require 'net/ssh'
+require 'net/sftp'
+require 'net/scp'
 
 class Job < ActiveRecord::Base
 
@@ -18,7 +21,7 @@ belongs_to :project
 
 SeriesData = Struct.new(:name, :data)
 
-  JOB_DIR = File.join('data', 'jobs')
+JOB_DIR = File.join('data', 'xml')
 
     def self.groups
       find(
@@ -107,8 +110,18 @@ SeriesData = Struct.new(:name, :data)
   end
   
   def self.build_from_xml()
+    
+    @file_name = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
+    @host = 'account'
+    @user = 'account'
+    @pass = '2hot2work'
+
+      Net::SCP.start( @host, @user, :password => @pass ) do |scp|   
+        scp.download!( "/usr/local/accounting/xml/#{@file_name}", 'data/xml' ) 
+      end
+    
     jobs = []
-    input_file = "#{JOB_DIR}/14.xml"
+    input_file = "#{JOB_DIR}/#{@file_name}"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
         if node.find('group').to_a.first.content == "neuro"
@@ -145,6 +158,17 @@ SeriesData = Struct.new(:name, :data)
     folders = diskfree.split(/\n/)
   end
 
+  def self.ssh_test
+    @file_to_download = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
+    @host = 'account'
+    @user = 'account'
+    @pass = '2hot2work'
+
+      Net::SCP.start( @host, @user, :password => @pass ) do |scp|   
+        scp.download!( "/usr/local/accounting/xml/#{@file_to_download}", 'data/xml' ) 
+      end 
+
+  end
   
 
 end

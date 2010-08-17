@@ -30,7 +30,7 @@ class ChartsController < ApplicationController
         if  !(params[:project_ids].nil?)
           @projects = Project.find(params[:project_ids]) 
         end
-
+        
         if  !(params[:software_ids].nil? || params[:project_ids].nil?)
           process_chart_with_all_variables(@softwares, @projects, @resources)
         end
@@ -55,18 +55,111 @@ class ChartsController < ApplicationController
     end
   end
 
-  def test
-    @chart = Chart.new(params[:chart])
-
-    respond_to do |format|
-      if @chart.valid?
-        @funciono = "Por fin funciono"
-      else          
-        format.html { render :action => "index" }
-        format.xml  { render :xml => @chart.errors, :status => :unprocessable_entity }          
+  def disk_space
+      @chart = Chart.new
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @charts }
       end
-    end
   end
+  
+  def show_disk_space
+     @chart = Chart.new(params[:chart])
+      @data = []
+      @from = @chart.from
+      @to = @chart.to
+      respond_to do |format|
+        if @chart.valid?
+
+          if  !(params[:format_ids].nil?)
+            @formats = Formato.find(params[:format_ids])
+          end
+          if  !(params[:project_ids].nil?)
+            @projects = Project.find(params[:project_ids]) 
+          end
+          if  !(params[:format_ids].nil? || params[:project_ids].nil?)
+            process_chart_disk_space(@formats, @projects)
+          end
+          if  (params[:format_ids].nil? && !(params[:project_ids].nil?) )
+            process_chart_disk_space_projects_only(@projects)
+          end
+           if  (!(params[:format_ids].nil?) && (params[:project_ids].nil?) )
+              process_chart_disk_space_formats_only(@formats)
+          end
+
+
+          format.html { render(:action=> "show_disk_space", :notice => 'chart was successfully created.') }
+        else
+          format.html { render :action => "disk_space" }
+          format.xml  { render :xml => @chart.errors, :status => :unprocessable_entity }
+        end
+      end
+  end
+
+  def test
+    @chart = Chart.new()
+
+  
+  end
+
+  def process_chart_disk_space(formats, projects)
+
+       projects.each do |project|
+         @sequences = project.sequences
+         formats.each do |format|
+           data1 = {}
+
+           data1[:name] = "#{format.name} #{project.name}"
+           data1[:data] = @sequences.find(
+           :all,
+           :select => "created_at, SUM(size) as data_attribute",
+           :conditions => {:created_at => (@from)..(@to), :formato_id => format.id},
+           :group => "created_at")
+           if  !(data1[:data].nil? || data1[:data].empty?)
+             @data << data1
+           end
+         end
+       end
+     return @data
+   end
+   
+   def process_chart_disk_space_projects_only(projects)
+
+        projects.each do |project|
+          @sequences = project.sequences        
+            data1 = {}
+
+            data1[:name] = "#{project.name}"
+            data1[:data] = @sequences.find(
+            :all,
+            :select => "created_at, SUM(size) as data_attribute",
+            :conditions => {:created_at => (@from)..(@to)},
+            :group => "created_at")
+            if  !(data1[:data].nil? || data1[:data].empty?)
+              @data << data1
+            end
+          end
+      return @data
+    end
+    
+     def process_chart_disk_space_formats_only(formats)
+
+          formats.each do |format|
+            @sequences = format.sequences        
+              data1 = {}
+
+              data1[:name] = "#{format.name}"
+              data1[:data] = @sequences.find(
+              :all,
+              :select => "created_at, SUM(size) as data_attribute",
+              :conditions => {:created_at => (@from)..(@to)},
+              :group => "created_at")
+              if  !(data1[:data].nil? || data1[:data].empty?)
+                @data << data1
+              end
+            end
+        return @data
+      end
 
   def process_chart_with_all_variables(softwares, projects, resources)
 
