@@ -18,7 +18,7 @@ class JobsController < ApplicationController
   end
   
   def datasave
-    @jobs = Job.build_from_xml()
+    @jobs = Job.build_from_xml
     for job in @jobs do
       /PRESENILE_fsproc_NMP_214.sh/
      @split = job.jobname.split('_')

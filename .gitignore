@@ -1,1 +1,5 @@
-*.log data/jobs/7.xml db/schema.sql
+*.log 
+data/jobs/7.xml 
+db/schema.sql
+data/xml
+config/database.yml

@@ -21,7 +21,7 @@ class SequencesController < ApplicationController
       for formato in @formatos do
     @sequences += Sequence.disk_free(project, formato)
         for sequence in @sequences do
-          @split           = sequence.name.split('/')
+          @split = sequence.name.split('/')
           sequence.project = Project.find_by_name(@split[7])
           sequence.formato = Formato.find_by_name(@split[9])
           sequence.save

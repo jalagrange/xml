@@ -10,7 +10,6 @@
 
 require 'xml/libxml'
 require 'net/ssh'
-require 'net/sftp'
 require 'net/scp'
 
 class Job < ActiveRecord::Base
@@ -109,48 +108,73 @@ JOB_DIR = File.join('data', 'xml')
     
   end
   
-  def self.build_from_xml()
-    
-    @file_name = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
+  def self.build_from_xml
+
+    @file_name = ((Time.now)-(3.day)).strftime("%Y%m%d") + ".xml"
     @host = 'account'
     @user = 'account'
     @pass = '2hot2work'
 
-      Net::SCP.start( @host, @user, :password => @pass ) do |scp|   
-        scp.download!( "/usr/local/accounting/xml/#{@file_name}", 'data/xml' ) 
+    Net::SCP.start( @host, @user, :password => @pass ) do |scp|   
+      scp.download!( "/usr/local/accounting/xml/#{@file_name}", 'data/xml' ) do |ch, name, sent, total|
+        puts "#{name}: #{sent}/#{total}"
       end
-    
-    jobs = []
+    end
+
+    @jobs = []
     input_file = "#{JOB_DIR}/#{@file_name}"
     doc = XML::Document.file(input_file) 
     doc.find('//execution_record').each do |node| 
-        if node.find('group').to_a.first.content == "neuro"
+      if node.find('group').to_a.first.content == "neuro"
         jobs << Job.new(
-          :jobid => node.find('jobid').to_a.first.content,
-          :day => node.find('date/day').to_a.first.content,
-          :time => node.find('date/time').to_a.first.content,
-          :user => node.find('user').to_a.first.content,
-          :group => node.find('group').to_a.first.content,
-          :jobname => node.find('jobname').to_a.first.content,
-          :queue => node.find('queue').to_a.first.content,
-          :ctime => node.find('ctime').to_a.first.content,
-          :qtime => node.find('qtime').to_a.first.content,
-          :etime => node.find('etime').to_a.first.content,
-          :start => node.find('start').to_a.first.content,
-          :owner => node.find('owner').to_a.first.content,
-          :session => node.find('session').to_a.first.content,
-          :end => node.find('end').to_a.first.content,
-    	    :exit_status => node.find('exit_status').to_a.first.content,
-    	    :node_name => node.find('resources_used/exec_host/node/nodename').to_a.first.content,
-    	    :cpu => node.find('resources_used/exec_host/node/cpu').to_a.first.content,
-    	    :cput => node.find('resources_used/cput').to_a.first.content,
-    	    :memory => node.find('resources_used/mem/memory').to_a.first.content,
-    	    :virtual_memory => node.find('resources_used/vmem/memory').to_a.first.content,
-    	    :walltime => node.find('resources_used/walltime').to_a.first.content	
+        :jobid => node.find('jobid').to_a.first.content,
+        :day => node.find('date/day').to_a.first.content,
+        :time => node.find('date/time').to_a.first.content,
+        :user => node.find('user').to_a.first.content,
+        :group => node.find('group').to_a.first.content,
+        :jobname => node.find('jobname').to_a.first.content,
+        :queue => node.find('queue').to_a.first.content,
+        :ctime => node.find('ctime').to_a.first.content,
+        :qtime => node.find('qtime').to_a.first.content,
+        :etime => node.find('etime').to_a.first.content,
+        :start => node.find('start').to_a.first.content,
+        :owner => node.find('owner').to_a.first.content,
+        :session => node.find('session').to_a.first.content,
+        :end => node.find('end').to_a.first.content,
+        :exit_status => node.find('exit_status').to_a.first.content,
+        :node_name => node.find('resources_used/exec_host/node/nodename').to_a.first.content,
+        :cpu => node.find('resources_used/exec_host/node/cpu').to_a.first.content,
+        :cput => node.find('resources_used/cput').to_a.first.content,
+        :memory => node.find('resources_used/mem/memory').to_a.first.content,
+        :virtual_memory => node.find('resources_used/vmem/memory').to_a.first.content,
+        :walltime => node.find('resources_used/walltime').to_a.first.content	
         )
       end
     end
-    jobs
+     for job in @jobs do
+       @split = job.jobname.split('_')
+        job.project = Project.find_by_name(@split[0])
+        job.proceso = Proceso.find_by_name(@split[1])
+        job.walltime = total_seconds(job.walltime)
+        job.cput = total_seconds(job.cput)
+        job.time_in_queue = (job.start.to_i) - (job.ctime.to_i)
+        job.time_in_execution = (job.end.to_i) - (job.start.to_i)
+        job.save
+      end
+  end
+
+  def self.save_xml
+    @jobs = Job.build_from_xml()
+    for job in @jobs do
+     @split = job.jobname.split('_')
+      job.project = Project.find_by_name(@split[0])
+      job.proceso = Proceso.find_by_name(@split[1])
+      job.walltime = total_seconds(job.walltime)
+      job.cput = total_seconds(job.cput)
+      job.time_in_queue = (job.start.to_i) - (job.ctime.to_i)
+      job.time_in_execution = (job.end.to_i) - (job.start.to_i)
+      job.save
+    end
   end
 
   def self.disk_free()
@@ -159,13 +183,17 @@ JOB_DIR = File.join('data', 'xml')
   end
 
   def self.ssh_test
+    puts "test"
     @file_to_download = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
     @host = 'account'
     @user = 'account'
     @pass = '2hot2work'
 
-      Net::SCP.start( @host, @user, :password => @pass ) do |scp|   
-        scp.download!( "/usr/local/accounting/xml/#{@file_to_download}", 'data/xml' ) 
+      Net::SCP.start( @host, @user, :password => @pass ) do |scp| 
+        puts "entro en el l"  
+        scp.download!( "/usr/local/accounting/xml/#{@file_to_download}", 'data/xml', options ={ :verbose => "1"}) do |ch, name, sent, total|
+          puts "#{name}: #{sent}/#{total}"
+            end 
       end 
 
   end
