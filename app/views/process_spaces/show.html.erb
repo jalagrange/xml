@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @process_space.name %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%=h @process_space.size %>
+</p>
+
+
+<%= link_to 'Edit', edit_process_space_path(@process_space) %> |
+<%= link_to 'Back', process_spaces_path %>

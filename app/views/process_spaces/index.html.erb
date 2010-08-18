@@ -1,0 +1,22 @@
+<h1>Listing process_spaces</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Size</th>
+  </tr>
+
+<% @process_spaces.each do |process_space| %>
+  <tr>
+    <td><%=h process_space.name %></td>
+    <td><%=h process_space.size %></td>
+    <td><%= link_to 'Show', process_space %></td>
+    <td><%= link_to 'Edit', edit_process_space_path(process_space) %></td>
+    <td><%= link_to 'Destroy', process_space, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New process_space', new_process_space_path %>

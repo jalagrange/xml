@@ -1,0 +1,17 @@
+	<h1>Process Spaces</h1>
+	<p> Corrio FreeDisk</p> 
+	<table>
+		<thead>
+			<th>Size</th>
+			<th>Name</th>
+		</thead>
+		<tbody>
+	<% for space in @spaces %>
+	<tr>
+			<td><%= space.size %></td>
+			<td><%= space.name %></td>
+											
+	</tr>
+	<% end %>
+		</tbody>
+	</table>

@@ -2,4 +2,5 @@
 data/jobs/7.xml 
 db/schema.sql
 data/xml
+data/projects
 config/database.yml

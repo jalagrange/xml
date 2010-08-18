@@ -9,11 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811094330) do
+ActiveRecord::Schema.define(:version => 20100818140519) do
 
   create_table "charts", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "from"
+    t.date     "to"
+    t.string   "title",      :limit => 100, :null => false
   end
 
   create_table "formatos", :force => true do |t|
@@ -25,34 +28,43 @@ ActiveRecord::Schema.define(:version => 20100811094330) do
   create_table "jobs", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "jobid",          :limit => 50
+    t.string   "jobid",             :limit => 50
     t.date     "day"
     t.time     "time"
-    t.string   "user",           :limit => 50
-    t.string   "group",          :limit => 50
-    t.string   "jobname",        :limit => 50
-    t.string   "queue",          :limit => 50
+    t.string   "user",              :limit => 50
+    t.string   "group",             :limit => 50
+    t.string   "jobname",           :limit => 50
+    t.string   "queue",             :limit => 50
     t.integer  "ctime"
     t.integer  "qtime"
     t.integer  "etime"
     t.integer  "start"
-    t.string   "owner",          :limit => 50
-    t.string   "session",        :limit => 50
+    t.string   "owner",             :limit => 50
+    t.string   "session",           :limit => 50
     t.integer  "end"
-    t.string   "exit_status",    :limit => 50
-    t.string   "node_name",      :limit => 50
-    t.string   "cpu",            :limit => 50
-    t.string   "cput",           :limit => 15
+    t.string   "exit_status",       :limit => 50
+    t.string   "node_name",         :limit => 50
+    t.string   "cpu",               :limit => 50
+    t.string   "cput",              :limit => 15
     t.integer  "memory"
     t.integer  "virtual_memory"
-    t.string   "walltime",       :limit => 15
+    t.string   "walltime",          :limit => 15
     t.integer  "project_id"
     t.integer  "proceso_id"
+    t.integer  "time_in_queue"
+    t.integer  "time_in_execution"
   end
 
   create_table "procesos", :force => true do |t|
     t.string   "name"
     t.integer  "software_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "process_spaces", :force => true do |t|
+    t.string   "name"
+    t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,14 +79,15 @@ ActiveRecord::Schema.define(:version => 20100811094330) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "view_name",  :limit => 50
   end
 
   create_table "sequences", :force => true do |t|
     t.string   "name"
     t.integer  "size"
-    t.datetime "created_at"
+    t.date     "created_at"
     t.datetime "updated_at"
-    t.integer  "proyect_id"
+    t.integer  "project_id"
     t.integer  "formato_id"
   end
 

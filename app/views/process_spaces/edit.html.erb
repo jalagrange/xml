@@ -1,0 +1,20 @@
+<h1>Editing process_space</h1>
+
+<% form_for(@process_space) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @process_space %> |
+<%= link_to 'Back', process_spaces_path %>

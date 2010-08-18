@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :formatos
+  map.resources :process_spaces, :collection => {:freedisk => :get}
 
+  map.resources :formatos
 
   map.resources :projects
 

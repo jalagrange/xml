@@ -1,0 +1,2 @@
+module ProcessSpacesHelper
+end
