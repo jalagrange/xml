@@ -46,17 +46,20 @@ $(document).ready(function() {
 		
 		series: [
 
-		<% for series in @data %>
+		
 		{	type: 'pie',
          	name: 'Browser share',  
 			data: [
+			<% for series in @data %>
 				<% for datapoint in series[:data] %>
-		         <%= "['#{series[:name]}', #{datapoint.data_attribute}]," %>
+					<% if ! (datapoint.data_attribute.to_i == 0) %>
+		         		<%= "['#{series[:name]}', #{datapoint.data_attribute}]," %>
+					<% end %>
 				<% end %>
-
+			<% end %>
 		         		]
 		},										
-		<% end %>
+	
 		]													
 								
     

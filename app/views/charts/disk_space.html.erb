@@ -41,11 +41,19 @@
 		<%= f.label :to %>
 		<%= f.text_field :to %>
 	</p>
+	<p>
+		<select id="type" name="type">
+			<option value= "line">LINE</option>
+			<option value= "bar">BAR</option>
+			<option value= "pie">PIE</option>
+		</select>
+	</p>
 
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Select Project:</a></li>
 			<li><a href="#tabs-2">Select Format:</a></li>
+			<li><a href="#tabs-3">Select Software:</a></li>
 		</ul>
 		<div id="tabs-1">
 
@@ -63,6 +71,14 @@
 				<% for format in Formato.find(:all) %>   
 				<%= check_box_tag "format_ids[]", format.id %>  
 				<%= format.name %>   
+				<% end %>
+			</p>
+		</div>
+		<div id="tabs-3">
+			<p>
+				<% for software in Software.find(:all) %>   
+				<%= check_box_tag "software_ids[]", software.id %>  
+				<%= software.name %>   
 				<% end %>
 			</p>
 		</div>

@@ -41,13 +41,19 @@
 		<%= f.label :to %>
 		<%= f.text_field :to %>
 	</p>
+		<p>
+			<select id="type" name="type">
+				<option value= "line">LINE</option>
+				<option value= "bar">BAR</option>
+				<option value= "pie">PIE</option>
+			</select>
+		</p>
 
 	<div id="tabs">
 		<ul>
 			<li><a href="#tabs-1">Select Project:</a></li>
 			<li><a href="#tabs-2">Select Software:</a></li>
 			<li><a href="#tabs-3">Select Resource:</a></li>
-			<li><a href="#tabs-4">Select Type of Chart:</a></li>
 		</ul>
 		<div id="tabs-1">
 
@@ -75,15 +81,8 @@
 				<%= resource.view_name %>    
 				<% end %>
 			</p>
-		<div id="tabs-4">
-			<p>
-				<% for resource in Resource.find(:all) %>  
-					<%= check_box_tag "resource_ids[]", resource.id %>  
-					<%= resource.view_name %>    
-					<% end %>
-			</p>
 		</div>
-	</div>
+
 
 	<%= f.submit "Create Chart" %>
 

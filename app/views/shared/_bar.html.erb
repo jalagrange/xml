@@ -34,7 +34,7 @@
 			         layout: 'vertical',
 			         align: 'right',
 			         verticalAlign: 'top',
-			         x: -90,
+			         x: 0,
 			         y: 20,
 			         borderWidth: 1,
 			         backgroundColor: '#FFFFFF'
@@ -43,15 +43,21 @@
 				series: [
 
 				<% for series in @data %>
+				<% for datapoint in series[:data] %>
+				<% if ! (datapoint.data_attribute.to_i == 0) %>
 				{	
 					name:<%= "'#{series[:name]}'"%>,
 					data: [
-						<% for datapoint in series[:data] %>
-				         <%= "#{datapoint.data_attribute}," %>
-						<% end %>
+						
+							
+				         		<%= "#{datapoint.data_attribute}" %>
+							
+						
 
 				         		]
-				},										
+				},
+				<% end %>
+				<% end %>										
 				<% end %>
 				]
 			});
