@@ -14,13 +14,13 @@
 			},
 			yAxis:{
 				title:{
-					text: "Prueba"
+					text: "Memoria en kb, Tiempo en segundos (multiplicar por mil)"
 				}
 			},
 			tooltip: {
 			         formatter: function() {
-			            return ''+
-			                this.series.name +': '+ this.y	;
+			            return '<b>'+
+			                this.series.name +':</b><br/> '+ this.y	;
 			         }
 			      },
 			      plotOptions: {
@@ -35,10 +35,15 @@
 			         align: 'right',
 			         verticalAlign: 'top',
 			         x: 0,
-			         y: 20,
+			         y: 270,
 			         borderWidth: 1,
 			         backgroundColor: '#FFFFFF'
 			      },
+				
+				credits: {
+				        text: 'PICNIC Monitoring System',
+				        href: 'https://neuroweb01.pic.es/'
+				    },
 			
 				series: [
 
@@ -50,7 +55,7 @@
 					data: [
 						
 							
-				         		<%= "#{datapoint.data_attribute}" %>
+				         		<%= "#{number_with_precision(datapoint.data_attribute.to_i)}" %>
 							
 						
 

@@ -16,19 +16,11 @@ $(document).ready(function() {
 </script>
  <% end %>
 
-
-<h2><%= @chart.title %></h2>
-<h2><%= @from %></h2>
-<h2><%= @to %></h2>
-<h2><%= @type %></h2>
-
-
-<h3>Selected Projects</h3>
-
+<h2><%= @chart.title %> <%= @from %> <%= @to %></h2>
 
 
 
 <%= render :partial => "shared/bar", :locals => { :insert_div => "chart"} %>
 
 
-<div id="chart" style="width:560px; height:300px"></div>
+<div id="chart" style="width:800px; height:450px"></div>

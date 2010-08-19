@@ -1,56 +1,64 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-   chart = new Highcharts.Chart({
-      chart: {
-         renderTo: '<%= insert_div %>',
-         defaultSeriesType: 'line',
-         marginRight: 130,
-         marginBottom: 25
-      },
-      title: {
-         text: '<%= @chart.title %>',
-         x: -20 //center
-      },
-     
-      xAxis: {type: 'datetime' 
-      },
-      yAxis: {
-         title: {
-            text: 'Tiempo en segundos'
-         },
-         plotLines: [{
-            value: 0,
-            width: 1,
-            color: '#808080'
-         }]
-      },
-     
-      legend: {
-         layout: 'vertical',
-         align: 'right',
-         verticalAlign: 'top',
-         x: -10,
-         y: 100,
-         borderWidth: 0
-      },
-	series: [
-	
-	<% for series in @data %>
-	{	pointInterval: <%= 1.day * 1000 %>,
-		name:<%= "'#{series[:name]}'"%>,
-		pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
-		      data: [
-			<% for datapoint in series[:data] %>
-	         <%= "[#{datapoint.day.to_time(:utc).to_i * 1000}, #{datapoint.data_attribute}]," %>
-			<% end %>
-				
-	         		]
-	},										
-	<% end %>
-	]
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: '<%= insert_div %>',
+			defaultSeriesType: 'line',
+			marginRight: 130,
+			marginBottom: 25
+		},
+		title: {
+			text: '<%= @chart.title %>',
+			x: -20 //center
+		},
 
-   });
-   
-   
+		xAxis: {type: 'datetime' 
+	},
+	yAxis: {
+		title: {
+			text: 'Tiempo en segundos'
+		},
+		plotLines: [{
+			value: 0,
+			width: 1,
+			color: '#808080'
+			}]
+		},
+		tooltip: {
+			formatter: function() {
+				return '<b>'+ this.series.name +':</b><br/> '+ Highcharts.dateFormat('%A %B %e %Y', this.x)+'<br/>' +this.y;
+			}
+		},
+
+		legend: {
+			layout: 'vertical',
+			align: 'right',
+			verticalAlign: 'top',
+			x: 0,
+			y: 270,
+			borderWidth: 0
+		},
+		credits: {
+			enabled: false
+		},
+		series: [
+
+		<% for series in @data %>
+		{	pointInterval: <%= 1.day * 1000 %>,
+			name:<%= "'#{series[:name]}'"%>,
+			pointStart: <%= 2.weeks.ago.at_midnight.to_i * 1000 %>,  
+			data: [
+			<% for datapoint in series[:data] %>
+			<%= "[#{datapoint.day.to_time(:utc).to_i * 1000}, #{number_with_precision(datapoint.data_attribute.to_i)}]," %>
+			<% end %>
+
+			]
+		},										
+		<% end %>
+		]
+
+	});
+
+
 });
 </script>

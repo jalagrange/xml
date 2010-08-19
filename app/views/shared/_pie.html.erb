@@ -1,68 +1,71 @@
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-   chart = new Highcharts.Chart({
-      chart: {
-         renderTo: '<%= insert_div %>',
-         margin: [50, 200, 60, 170]
-      },
-      title: {
-         text: '<%= @chart.title %>'
-      },
-      plotArea: {
-         shadow: null,
-         borderWidth: null,
-         backgroundColor: null
-      },
-      tooltip: {
-         formatter: function() {
-            return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
-         }
-      },
-      plotOptions: {
-         pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-               enabled: true,
-               formatter: function() {
-                  if (this.y > 5) return this.point.name;
-               },
-               color: 'white',
-               style: {
-                  font: '13px Trebuchet MS, Verdana, sans-serif'
-               }
-            }
-         }
-      },
-      legend: {
-         layout: 'vertical',
-         style: {
-            left: 'auto',
-            bottom: 'auto',
-            right: '50px',
-            top: '100px'
-         }
-      },
-		
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: '<%= insert_div %>',
+			margin: [50, 200, 60, 170]
+		},
+		title: {
+			text: '<%= @chart.title %>'
+		},
+		plotArea: {
+			shadow: null,
+			borderWidth: null,
+			backgroundColor: null
+		},
+		tooltip: {
+			formatter: function() {
+				return '<b>'+ this.point.name +':</b><br/> '+ this.percentage+' %<br/>' +this.y;
+			}
+		},
+		plotOptions: {
+			pie: {
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels: {
+					enabled: true,
+					formatter: function() {
+						if (this.y > 5) return this.point.name;
+					},
+					color: 'white',
+					style: {
+						font: '13px Trebuchet MS, Verdana, sans-serif'
+					}
+				}
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			style: {
+				left: 'auto',
+				bottom: 'auto',
+				right: '30px',
+				top: '270px'
+			}
+		},
+		credits: {
+			enabled: false
+		},
+
 		series: [
 
-		
+
 		{	type: 'pie',
-         	name: 'Browser share',  
-			data: [
-			<% for series in @data %>
-				<% for datapoint in series[:data] %>
-					<% if ! (datapoint.data_attribute.to_i == 0) %>
-		         		<%= "['#{series[:name]}', #{datapoint.data_attribute}]," %>
-					<% end %>
-				<% end %>
-			<% end %>
-		         		]
-		},										
-	
-		]													
-								
-    
-   });
+		name: 'Browser share',  
+		data: [
+		<% for series in @data %>
+		<% for datapoint in series[:data] %>
+		<% if ! (datapoint.data_attribute.to_i == 0) %>
+		<%= "['#{series[:name]}', #{datapoint.data_attribute}]," %>
+		<% end %>
+		<% end %>
+		<% end %>
+		]
+	},										
+
+	]													
+
+
+});
 });
 </script>
