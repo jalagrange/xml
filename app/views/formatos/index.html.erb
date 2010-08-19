@@ -1,10 +1,10 @@
-<h1>Listing formatos</h1>
+<h1>Formats</h1>
 
 <table>
   <tr>
     <th>Name</th>
   </tr>
-
+<%= link_to 'New format', new_formato_path %>
 <% @formatos.each do |formato| %>
   <tr>
     <td><%=h formato.name %></td>
@@ -17,4 +17,3 @@
 
 <br />
 
-<%= link_to 'New formato', new_formato_path %>

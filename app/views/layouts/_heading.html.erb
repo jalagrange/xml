@@ -15,8 +15,12 @@
 			<div class="menu-header">
 				<ul id="menu-menu-principal"class="menu">
 					<li id="menu-item-37" class="menu-item menu-item-type-custom">
-						<%=link_to "Jobs", jobs_path%>
-						
+						<%=link_to "Charts", charts_path%>
+						<ul class="sub-menu">										
+							<li id="menu-item-89" class="menu-item menu-item-type-post_type ultimo">
+								<%=link_to "Disk Usage", disk_space_charts_path %>
+							</li>						
+						</ul>	
 					</li>
 					<li id="menu-item-37" class="menu-item menu-item-type-custom">
 						<%=link_to "Processes", procesos_path%>
@@ -47,31 +51,11 @@
 									<%=link_to "New Format", new_formato_path %></li>						
 							</ul>
 						</li>
-					<li id="menu-item-37" class="menu-item menu-item-type-custom">
-						<%=link_to "Sequences", sequences_path%>
-						<ul class="sub-menu">										
-							<li id="menu-item-38" class="menu-item menu-item-type-post_type ultimo">
-								<%=link_to "Free Disk", freedisk_sequences_path %></li>						
-						</ul>		
+						<li id="menu-item-37" class="menu-item menu-item-type-custom">
+							<%=link_to "Jobs", jobs_path%>
+
+						</li>
 					</li>
-					<li id="menu-item-37" class="menu-item menu-item-type-custom">
-						<%=link_to "Charts", charts_path%>
-						<ul class="sub-menu">										
-							<li id="menu-item-89" class="menu-item menu-item-type-post_type ultimo">
-								<%=link_to "Disk Usage", disk_space_charts_path %>
-							</li>						
-						</ul>	
-					</li>
-					</li>
-					<li id="menu-item-88" class="menu-item menu-item-type-custom">
-						<%=link_to "Procces Spaces", process_spaces_path%>
-						<ul class="sub-menu">										
-							<li id="menu-item-89" class="menu-item menu-item-type-post_type ultimo">
-								<%=link_to "Free Disk", freedisk_process_spaces_path %></li>						
-						</ul>	
-					</li>
-					
-			
 				</ul>
 			</div><!-- #menu-header -->
 		</div><!-- #access -->

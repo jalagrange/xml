@@ -1,34 +1,10 @@
-<% content_for :head do %>  
-<%= javascript_include_tag 'jquery.dataTables','highcharts','js/modules/exporting.js' %> 
-<%= stylesheet_link_tag 'demo_table_jui' %>
-<script type="text/javascript">
-$(document).ready(function() {
-
-	$('#jobs').dataTable({
-	 "bJQueryUI": true,
-		"aoColumns": [
-			null,
-            null
-        ]
-                   
-	});
-});
-</script>
- <% end %>
-
-
 <p>
   <b>Name:</b>
   <%=h @software.name %>
 </p>
-
-
-<%= render :partial => "shared/line", :locals => { :insert_div => "memory_line_chart", :title => "Memory Vs Virtual Memory"} %>
-
-
-<div id="memory_line_chart" style="width:560px; height:300px"></div>
-
-
+<p>
+  <b>Processes:</b>
+</p>
 <table>
 	<thead>
 		<tr>

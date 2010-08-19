@@ -1,6 +1,6 @@
-<h1>Editing proceso</h1>
+<h1>Editing <%= @proceso.name %></h1>
 
-<%= render :partial => "form", :locals => { :button_label => "Actualizar Proceso"} %>
+<%= render :partial => "form", :locals => { :button_label => "Update Process"} %>
 
 <%= link_to 'Show', @proceso %> |
 <%= link_to 'Back', procesos_path %>

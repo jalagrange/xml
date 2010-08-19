@@ -1,10 +1,10 @@
-<h1>Listing softwares</h1>
+<h1>Softwares</h1>
 
 <table>
   <tr>
     <th>Name</th>
   </tr>
-
+<%= link_to 'Add software', new_software_path %>
 <% @softwares.each do |software| %>
   <tr>
     <td><%=h software.name %></td>
@@ -17,4 +17,3 @@
 
 <br />
 
-<%= link_to 'Add software', new_software_path %>
