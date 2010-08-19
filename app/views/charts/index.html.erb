@@ -22,9 +22,9 @@
 	});
 	</script>
 	<% end %>
-	<p>
-		<b>Charts:</b>
-	</p>
+	<h2>
+		<b>Resource Chart:</b>
+	</h2>
 	<% form_for :chart, @chart, :url => { :action => "show" }, :html=>{:class=>"form"}  do |f| %>
 	<%= error_messages_for :chart, 
 							:header_message => "Please Try Again!", 

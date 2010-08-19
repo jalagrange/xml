@@ -16,17 +16,8 @@ $(document).ready(function() {
 </script>
  <% end %>
 
-
-<h2><%= @chart.title %></h2>
-<h2><%= @from %></h2>
-<h2><%= @to %></h2>
-<h2><%= @type %></h2>
-
-
-<h3>Selected Projects</h3>
-
-
-
+<h4>From: <%= @from.readable_inspect %></h4> 
+<h4>To: <%= @to.readable_inspect %></h4>
 
 <%= render :partial => "shared/pie", :locals => { :insert_div => "chart"} %>
 

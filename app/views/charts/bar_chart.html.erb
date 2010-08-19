@@ -16,9 +16,8 @@ $(document).ready(function() {
 </script>
  <% end %>
 
-<h3>Desde: <%= @from %> Hasta: <%= @to %></h3>
-
-
+<h4>From: <%= @from.readable_inspect %></h4> 
+<h4>To: <%= @to.readable_inspect %></h4>
 
 <%= render :partial => "shared/bar", :locals => { :insert_div => "chart"} %>
 

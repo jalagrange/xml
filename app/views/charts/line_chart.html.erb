@@ -16,19 +16,10 @@ $(document).ready(function() {
 </script>
  <% end %>
 
+<h4>From: <%= @from.readable_inspect %></h4> 
+<h4>To: <%= @to.readable_inspect %></h4>
 
-<h2><%= @chart.title %></h2>
-<h2><%= @from %></h2>
-<h2><%= @to %></h2>
-<h2><%= @type %></h2>
-
-
-<h3>Selected Projects</h3>
+<%= render :partial => "shared/line", :locals => { :insert_div => "chart"} %>
 
 
-
-
-<%= render :partial => "shared/line", :locals => { :insert_div => "memory_line_chart", :title => "Memory Vs Virtual Memory"} %>
-
-
-<div id="memory_line_chart" style="width:800px; height:450px"></div>
+<div id="chart" style="width:800px; height:450px"></div>

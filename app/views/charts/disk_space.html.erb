@@ -22,9 +22,9 @@
 	});
 	</script>
 	<% end %>
-	<p>
-		<b>Charts:</b>
-	</p>
+	<h2>
+		<b>Disk Usage Chart:</b>
+	</h2>
 	<% form_for :chart, @chart, :url => { :action => "show_disk_space" }, :html=>{:class=>"form"}  do |f| %>
 	<%= error_messages_for :chart, 
 							:header_message => "Please Try Again!", 
@@ -42,6 +42,7 @@
 		<%= f.text_field :to %>
 	</p>
 	<p>
+		<label for="type">Type</label>
 		<select id="type" name="type">
 			<option value= "line">LINE</option>
 			<option value= "bar">BAR</option>

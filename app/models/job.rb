@@ -110,7 +110,7 @@ JOB_DIR = File.join('data', 'xml')
   
   def self.build_from_xml
 
-    @file_name = ((Time.now)-(3.day)).strftime("%Y%m%d") + ".xml"
+    @file_name = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
     @host = 'account'
     @user = 'account'
     @pass = '2hot2work'
@@ -151,16 +151,8 @@ JOB_DIR = File.join('data', 'xml')
         )
       end
     end
-     for job in @jobs do
-       @split = job.jobname.split('_')
-        job.project = Project.find_by_name(@split[0])
-        job.proceso = Proceso.find_by_name(@split[1])
-        job.walltime = total_seconds(job.walltime)
-        job.cput = total_seconds(job.cput)
-        job.time_in_queue = (job.start.to_i) - (job.ctime.to_i)
-        job.time_in_execution = (job.end.to_i) - (job.start.to_i)
-        job.save
-      end
+    remove_xml = `rm data/xml/#{@file_name}`
+    jobs
   end
 
   def self.save_xml
@@ -183,18 +175,9 @@ JOB_DIR = File.join('data', 'xml')
   end
 
   def self.ssh_test
+    @file_name = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
     puts "test"
-    @file_to_download = ((Time.now)-(1.day)).strftime("%Y%m%d") + ".xml"
-    @host = 'account'
-    @user = 'account'
-    @pass = '2hot2work'
-
-      Net::SCP.start( @host, @user, :password => @pass ) do |scp| 
-        puts "entro en el l"  
-        scp.download!( "/usr/local/accounting/xml/#{@file_to_download}", 'data/xml', options ={ :verbose => "1"}) do |ch, name, sent, total|
-          puts "#{name}: #{sent}/#{total}"
-            end 
-      end 
+    remove_xml = `rm data/xml/#{@file_name}`
 
   end
   
